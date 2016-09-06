@@ -1,0 +1,408 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"text",
+				"text-align"
+			],
+			[
+				"bdrr",
+				"bdbrrs	border-bottom-right-radius"
+			],
+			[
+				"tex",
+				"text-align"
+			],
+			[
+				"marg",
+				"margin-top"
+			],
+			[
+				"query",
+				"queryString"
+			],
+			[
+				"unie",
+				"uniqueURL"
+			],
+			[
+				"lo",
+				"log"
+			],
+			[
+				"draw",
+				"drawChart"
+			],
+			[
+				"ready",
+				"ready	document.ready - $(function(){})"
+			],
+			[
+				"bor",
+				"border-radius"
+			],
+			[
+				"padding",
+				"padding-right"
+			],
+			[
+				"bdr",
+				"bdr+	border-right: ${1:1px} ${2:solid} ${3:#000};"
+			],
+			[
+				"bordrt",
+				"border-top"
+			],
+			[
+				"border-le",
+				"border-left-width"
+			],
+			[
+				"bd",
+				"bd+	border: ${1:1px} ${2:solid} ${3:#000};"
+			],
+			[
+				"inli",
+				"inline-block"
+			],
+			[
+				"re",
+				"ready	document.ready - $(function(){})"
+			],
+			[
+				"po",
+				"pos-f	position: fixed;"
+			],
+			[
+				"todo",
+				"todos"
+			]
+		]
+	},
+	"buffers":
+	[
+		{
+			"file": "/home/alex/Projects/mysite/app/index.html",
+			"settings":
+			{
+				"buffer_size": 6659,
+				"line_ending": "Unix"
+			}
+		}
+	],
+	"build_system": "",
+	"build_system_choices":
+	[
+	],
+	"build_varint": "",
+	"command_palette":
+	{
+		"height": 392.0,
+		"last_filter": "i",
+		"selected_items":
+		[
+			[
+				"i",
+				"Package Control: Install Package"
+			],
+			[
+				"theme",
+				"ColorSchemeSelector: Select Color Scheme"
+			],
+			[
+				"install",
+				"Package Control: Install Package"
+			]
+		],
+		"width": 521.0
+	},
+	"console":
+	{
+		"height": 139.0,
+		"history":
+		[
+			"import urllib.request,os,hashlib; h = '2915d1851351e5ee549c20394736b442' + '8bc59f460fa1548d1514676163dafc88'; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); by = urllib.request.urlopen( 'http://packagecontrol.io/' + pf.replace(' ', '%20')).read(); dh = hashlib.sha256(by).hexdigest(); print('Error validating download (got %s instead of %s), please try manual install' % (dh, h)) if dh != h else open(os.path.join( ipp, pf), 'wb' ).write(by)"
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"expanded_folders":
+	[
+		"/home/alex/Projects/mysite",
+		"/home/alex/Projects/mysite/app"
+	],
+	"file_history":
+	[
+		"/home/alex/Projects/hwh-scholarship/app/scripts/main.js",
+		"/home/alex/Projects/hwh-scholarship/app/styles/main.scss",
+		"/home/alex/Projects/hwh-scholarship/app/index.html",
+		"/home/alex/Projects/google-sheets-interface/bower_components/jquery/dist/jquery.js",
+		"/home/alex/Projects/google-sheets-interface/app/scripts/main.js",
+		"/home/alex/Projects/google-sheets-interface/.yo-rc.json",
+		"/home/alex/Projects/google-sheets-interface/package.json",
+		"/home/alex/Projects/google-sheets-interface/sheets.sublime-project",
+		"/home/alex/Projects/google-sheets-interface/.bowerrc",
+		"/home/alex/Projects/google-sheets-interface/.editorconfig",
+		"/home/alex/Projects/google-sheets-interface/Gruntfile.js",
+		"/home/alex/Projects/google-sheets-interface/.gitignore",
+		"/home/alex/Projects/wedding-app/app/scripts/controllers/directions.js",
+		"/home/alex/Projects/wedding-app/app/scripts/app.js",
+		"/home/alex/Projects/wedding-app/app/styles/main.scss",
+		"/home/alex/Projects/wedding-app/app/views/weekend/directions.html",
+		"/home/alex/Projects/wedding-app/app/index.html",
+		"/home/alex/Projects/wedding-app/app/scripts/controllers/main.js",
+		"/home/alex/Projects/wedding-app/app/views/main.html",
+		"/home/alex/Projects/wedding-app/app/styles/_fonts.scss",
+		"/home/alex/Projects/wedding-app/app/scripts/controllers/about.js",
+		"/home/alex/Projects/wedding-app/.jshintrc",
+		"/home/alex/Projects/wedding-app/app/robots.txt",
+		"/home/alex/Projects/wedding-app/old_site/css/prc/index.scss",
+		"/home/alex/Projects/wedding-app/README.md",
+		"/home/alex/Projects/wedding-app/old_site/footer.php",
+		"/home/alex/Projects/wedding-app/old_site/header.php",
+		"/home/alex/Projects/mytodo/app/scripts/app.js",
+		"/home/alex/Projects/mytodo/app/views/main.html",
+		"/home/alex/Projects/mytodo/test/karma.conf.js",
+		"/home/alex/Projects/mytodo/Gruntfile.js",
+		"/home/alex/Projects/mytodo/test/spec/controllers/main.js",
+		"/home/alex/Projects/mytodo/app/scripts/controllers/main.js",
+		"/home/alex/Projects/mytodo/app/views/about.html",
+		"/home/alex/Projects/mytodo/app/index.html",
+		"/home/alex/Projects/mytodo/bower.json",
+		"/home/alex/Projects/mytodo/app/scripts/controllers/about.js",
+		"/home/alex/Projects/mytodo/.bowerrc",
+		"/home/alex/.config/sublime-text-3/Packages/User/Preferences.sublime-settings",
+		"/home/alex/.config/sublime-text-3/Packages/Default/Preferences.sublime-settings",
+		"/home/alex/.config/sublime-text-3/Packages/User/SublimeLinter.sublime-settings"
+	],
+	"find":
+	{
+		"height": 84.0
+	},
+	"find_in_files":
+	{
+		"height": 0.0,
+		"where_history":
+		[
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"<div class=\"radio\">\n                  <h5>Search by,</h5>\n                  <label><input type=\"radio\" value=\"option1\"> Junior High School </label>\n               </div>",
+			"title",
+			"submitquery",
+			"title",
+			"padding",
+			"margin-top",
+			"border-radius",
+			"irectionsCtrl"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"selected": 0,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "/home/alex/Projects/mysite/app/index.html",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 6659,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"BracketHighlighterBusy": false,
+							"bh_regions":
+							[
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_single_quote_content",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_curly_content",
+								"bh_c_define",
+								"bh_c_define_center",
+								"bh_c_define_open",
+								"bh_c_define_close",
+								"bh_c_define_content",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_angle_content",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_tag_content",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_double_quote_content",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_unmatched_content",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_round_content",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_default_content",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_square_content",
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_regex_content"
+							],
+							"syntax": "Packages/HTML/HTML.tmLanguage",
+							"tab_size": 3,
+							"tabs_extra_last_activated": 1450495010.03,
+							"tabs_extra_last_activated_sheet_index": 0,
+							"tabs_extra_spawned": true,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 25.0
+	},
+	"input":
+	{
+		"height": 33.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"pinned_build_system": "",
+	"project": "/home/alex/Projects/mysite/mysite.sublime-project",
+	"replace":
+	{
+		"height": 46.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 500.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 380.0
+	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"selected_group": 0,
+	"settings":
+	{
+	},
+	"show_minimap": true,
+	"show_open_files": true,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 214.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}

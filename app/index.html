@@ -1,0 +1,374 @@
+<!doctype html>
+
+<!-- 
+   Author: Alex Dodge
+   Date  : December 4, 2015
+   Description:
+      This application is designed for use with google visulization api and querying google sheets.
+      Using the api and it's associated query language it is possible to submit and retrieve specific
+      data from a publicly linked google sheet. This database like interaction can then be processed
+      into a table or another form of graphical representation.
+ -->
+
+<html class="no-js" lang="en">
+
+   <head>
+
+      <meta charset="utf-8">
+      <title>Google Sheets Interface</title>
+      
+      <meta name="description" content="This is an application which allows you to use the Google
+      Visualization API Query Language to make requests to a google sheets page like a database.
+      You can also download the source files on GitHub for use in your own website.">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+
+      <link rel="shortcut icon" href="/favicon.ico">
+      <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+      <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+
+      <!-- build:css(.) styles/vendor.css -->
+      <!-- bower:css -->
+      <!-- endbower -->
+      <!-- endbuild -->
+
+      <!-- build:css(.tmp) styles/main.css -->
+      <link rel="stylesheet" href="styles/main.css">
+      <!-- endbuild -->
+
+      <!-- build:js scripts/vendor/modernizr.js -->
+      <script src="/bower_components/modernizr/modernizr.js"></script>
+      <!-- endbuild -->
+
+   </head>
+   
+   <body>
+      <!--[if lt IE 10]>
+      <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+      <![endif]-->
+
+      <div class="container">
+
+         <div class="header">
+            <div class="container-fluid">
+               <div id="app-nav" class="navbar navbar-default navbar-fixed-top" role="navigation">
+
+                  <a class="navbar-brand" href="#">
+                     <img id="logo-image" class="img-responsive" src="images/hwh-logo-small.png" alt="brand image">
+                  </a>
+
+                  <h2 class="app-header">Halifax West Scholarship Finder</h2>
+                  
+                  <ul class="nav pull-right return">
+                     <li class="">
+                        <div class="btn btn-primary">Return Home</div>
+                     </li>
+                  </ul>
+               </div>
+            </div>
+         </div>
+         
+
+         <div class="space" style="margin-top: 80px;"></div>
+         
+         <div class="introduction">Use the fields below to search for and sort information from the
+         student information sheet concerning scholarships. If you have any questions please direct
+         them to Brad Watt.</div>
+         
+         <!--
+         <div class="space" style="margin-top: 25px;"></div>
+
+         <div class="info-section">Note that for google sheets, the columns are not referenced by the 
+         actual name, but the ID. So for google sheets, if you wanted to select the first column, you
+         would input <b>SELECT A</b>. This would print out only the first column. You would add functionality
+         which reads the input and translates what the user inputs so that they could write the actual
+         columns.</div> -->
+
+         <div class="space" style="margin-top: 25px;"></div>
+
+         <form id="google-sheet-query">
+
+            <!-- The input for determining what fields to search with -->
+            <div class="form-group">
+
+               <label for="google-url">
+                  What would you like to search by? (You may check multiple boxes for a detailed search)
+               </label>
+
+               <div class="checkbox"><label><input id="student-checkbox" type="checkbox"> Student Name </label></div>
+               <div class="checkbox"><label><input id="school-checkbox" type="checkbox"> School </label></div>
+               <div class="checkbox"><label><input id="amount-checkbox" type="checkbox"> Scholarship Amount </label></div>
+            </div>
+
+            <!-- Name search form section -->
+            <div class="name-filter-container">
+               <p class="name-title"><b>Name Search</b></p>
+               <p class="small"> 
+                  Enter the name of a student below. Note that if you only use first and last
+                  name you will be able to pick all students with those first and last names.
+               </p>
+
+               <!-- The form input for the unique Google Sheets URL -->
+               <div class="form-group">
+                  <label for="first-name">Enter the first and/or last name of the student(s)</label>
+
+                  <input type="text" class="form-control" id="first-name" placeholder="First name here" aria-describedby="sizing-addon1">
+
+                  <div class="space" style="margin-top: 10px;"></div>
+
+                  <input type="text" class="form-control" id="last-name" placeholder="Last name here" aria-describedby="sizing-addon1">
+               </div>
+               
+            </div>
+
+            <!-- School search form section -->
+            <div class="school-filter-container">
+               <p class="school-title"><b>School Search</b></p>
+               <p class="small"> 
+                  Check whether you would like to search by junior high or elementary, then select the desired
+                  school from the appropriate dropdown menu.
+               </p>
+
+               <div class="radio">
+                  <p>Search by :</p>
+                  <label><input type="radio" name="optionsRadios" value="option1"> Junior High School </label>
+                  <label><input type="radio" name="optionsRadios" value="option2"> Elementary School </label>
+               </div>
+
+               <!-- The form input for the unique Google Sheets URL -->
+               <div class="form-group">
+                  <p><b>Select the school from the appropriate dropdown menu. If the school
+                  is not an HRSB school, please enter the name of the school, or check the box to find
+                  all students who attended schools not in the HRSB.</b></p>
+
+                  <!-- Junior High School List -->
+                  <p class="junior-high-title">List of junior high schools :</p>
+                  <select class="form-control">
+                     <option>A.J. Smeltzer Junior High</option>
+                     <option>Astral Drive Junior High</option>
+                     <option>Bicentennial School</option>
+                     <option>Brookside Junior High</option>
+                     <option>Caledonia Junior High</option>
+                     <option>Clayton Park Junior High</option>
+                     <option>Cunard Junior High</option>
+                     <option>Eastern Passage Education Centre</option>
+                     <option>Elizabeth Sutherland</option>
+                     <option>Ellenvale Junior High</option>
+                     <option>Eric Graves Memorial Junior High</option>
+                     <option>Fairview Junior High</option>
+                     <option>Five Bridges Junior High</option>
+                     <option>Gaetz Brook Junior High</option>
+                     <option>Georges P. Vanier Junior High</option>
+                     <option>Gorsebrook Junior High</option>
+                     <option>Graham Creighton Junior High</option>
+                     <option>Halifax Central Junior High</option>
+                     <option>Harold T. Barrett Junior High</option>
+                     <option>Herring Cove Road Junior High</option>
+                     <option>Highland Park Junior High</option>
+                     <option>John Martin Junior High</option>
+                     <option>Leslie Thomas Junior High</option>
+                     <option>Madeline Symonds Middle School</option>
+                     <option>Musquodoboit Valley Education Centre</option>
+                     <option>Oxford School</option>
+                     <option>Oyster Pond Academy</option>
+                     <option>Park West School</option>
+                     <option>Prince Arthur Junior High</option>
+                     <option>Ross Road School</option>
+                     <option>Rocky Lake Junior High</option>
+                     <option>Sackville Heights Junior High</option>
+                     <option>Sir Robert Borden</option>
+                     <option>St. Agnes Junior High</option>
+                     <option>Rockingstone Heights</option>
+                     <option>Ridgecliff Middle School</option>
+                  </select>
+
+                  <div class="space" style="margin-top: 10px;"></div>
+
+                  <p class="junior-high-title">List of elementary schools :</p>
+                  <select class="form-control">
+                     <option>Admiral Westphal Elementary</option>
+                     <option>Alderney Elementary</option>
+                     <option>Ash Lee Jefferson Elementary</option>
+                     <option>Atlantic Memorial - Terrence Bay Elementary</option>
+                     <option>Atlantic View Elementary</option>
+                     <option>Beaver Bank-Kinsac Elementary</option>
+                     <option>Beaver Bank-Monarch Drive Elementary</option>
+                     <option>Beechville Lakeside Timberlea Elementary</option>
+                     <option>Bel Ayr Elementary</option>
+                     <option>Brookhouse Elementary</option>
+                     <option>Burton Ettinger Elementary</option>
+                     <option>Calwell Road Elementary</option>
+                     <option>Caudle Park Elementary</option>
+                     <option>Cavalier Drive School</option>
+                     <option>Central Spryfield Elementary</option>
+                     <option>Chebucto Heights Elementary</option>
+                     <option>Colby Village Elementary</option>
+                     <option>Colonel Stuart Elementary</option>
+                     <option>Chrichton Park Elementary</option>
+                     <option>Duc d'Anville Elementary</option>
+                     <option>Dutch Settlement Elementary</option>
+                     <option>East St. Margaret's Elementary</option>
+                     <option>Eastern Consolidated Elementary</option>
+                     <option>Elizabeth Sutherland</option>
+                     <option>Fairview Heights Elementary</option>
+                     <option>George Bissett Elementary</option>
+                     <option>Grosvenor-Wentworth Park Elementary</option>
+                     <option>Hammonds Plains Consolidated Elementary</option>
+                     <option>Harbour View Elementary</option>
+                     <option>Harrietsfield Elementary</option>
+                     <option>Harry R. Hamilton Elementary</option>
+                     <option>Hawthorn Elementary</option>
+                     <option>Hillside Park Elementary</option>
+                     <option>Holland Road Elementary</option>
+                     <option>Humber Park Elementary</option>
+                     <option>Ian Forsyth Elementary</option>
+                     <option>Inglis Street Elementary</option>
+                     <option>John MacNeil Elementary</option>
+                     <option>John W. MacLeod - Fleming Tower Elementary</option>
+                     <option>Joseph Giles Elementary</option>
+                     <option>Joseph Howe Elementary</option>
+                     <option>Kingswood Elementary</option>
+                     <option>Lakefront Consildated Elementary</option>
+                     <option>LeMarchant-St. Thomas Elementary</option>
+                     <option>Michael Wallace Elementary</option>
+                     <option>Millwood Elementary</option>
+                     <option>Mount Edward Elementary</option>
+                     <option>Nelson Whynder</option>
+                     <option>O'Connell Drive Elementary</option>
+                     <option>Ocean View Elementary</option>
+                     <option>Oldfield Consolidated Elementary</option>
+                     <option>Porters Lake Elementary</option>
+                     <option>Portland Estates Elementary</option>
+                     <option>Prospect Road Elementary</option>
+                     <option>Robert Kemp Turner Elementary</option>
+                     <option>Rockingham Elementary</option>
+                     <option>Rockingstone Height School</option>
+                     <option>Sackville Heights Elementary</option>
+                     <option>Saint Mary's Elementary</option>
+                     <option>Sambro Elementary</option>
+                     <option>Seaside Elementary</option>
+                     <option>Shannon Park Elementary</option>
+                     <option>Shatford Memorial Elementary</option>
+                     <option>Sheet Harbour Consolidated Elementary</option>
+                     <option>Sir Charles Tupper Elementary</option>
+                     <option>Smokey Drive Elementary</option>
+                     <option>South Woodside Elementary</option>
+                     <option>Southdale-North Woodside Elementary</option>
+                     <option>Springvale Elementary</option>
+                     <option>St. Catherine's Elementary</option>
+                     <option>St. Joseph's-Alexander McKay Elementary</option>
+                     <option>St. Margaret's Bay Elementary</option>
+                     <option>St. Stephen's Elementary</option>
+                     <option>Sunnyside Elementary</option>
+                     <option>Sycamore Lane Elementary</option>
+                     <option>Tantallon Elementary</option>
+                     <option>Upper Musquodoboit Consolidated Elementary</option>
+                     <option>Waverley Memorial</option>
+                     <option>Westmount Elementary</option>
+                     <option>William King Elementary</option>
+                  </select>
+               </div>
+               
+            </div>
+
+            <!-- Scholarship search form section -->
+            <div class="amount-filter-container">
+               <p class="amount-title"><b>Amount Search</b></p>
+               <p class="small"> 
+                  First choose whether you would like to search for a specific amount, an
+                  amount less than the specified number, greater, or between. All of the
+                  searches are inclusive of the entered number.
+               </p>
+
+               <!-- The form input for the unique Google Sheets URL -->
+               <div class="form-group">
+                  <div class="radio">
+                     <p>Search by amount:</p>
+                     <label><input type="radio" name="amountRadios" value="option1"> Equal to </label>
+                     <label><input type="radio" name="amountRadios" value="option2"> Greater than </label>
+                  </div>
+
+                  <div class="radio">
+                     <label><input type="radio" name="amountRadios" value="option3"> Greater than or equal to </label>
+                     <label><input type="radio" name="amountRadios" value="option4"> Less than </label>
+                  </div>
+
+                  <div class="radio">
+                     <label><input type="radio" name="amountRadios" value="option5"> Less than or equal to </label>
+                     <label><input type="radio" name="amountRadios" value="option5"> Between </label>
+                  </div>
+
+                  <div class="space" style="margin-top: 10px;"></div>
+
+                  <input type="text" class="form-control" id="first-scholar-amount" placeholder="First amount" aria-describedby="sizing-addon1">
+                  
+                  <div class="middle-text">
+                     <p>and</p>
+                  </div>
+
+                  <input type="text" class="form-control" id="second-scholar-amount" placeholder="Second amount" aria-describedby="sizing-addon1">
+               </div>
+               
+            </div>
+
+            <div class="submit-section">
+               <div class="btn btn-success disabled">Submit Information</div>
+               <div class="btn btn-info disabled">Reset Form</div>
+            </div>
+         </form>
+
+         <div class="space" style="margin-top: 50px;"></div>
+
+         <div class="output-section">
+            <div class="header">
+               <h3 class="output-title">Search Output</h3>
+
+               <div class="options-panel">
+                  <div class="btn btn-primary">Save to PDF</div>
+                  <div class="btn btn-info">Print Output</div>
+               </div>
+            </div>
+
+            <div id="table-output"></div>
+
+         </div>
+
+         <div class="space" style="margin-top: 50px;"></div>
+
+         <div class="footer">
+            <p>Alex Dodge &copy; 2015 </p>
+         </div>
+
+   </div>
+
+   
+      <!-- build:js(.) scripts/vendor.js -->
+      <!-- bower:js -->
+      <script src="/bower_components/jquery/dist/jquery.js"></script>
+      <!-- endbower -->
+      <!-- endbuild -->
+
+      <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+      <script src="//cdnjs.cloudflare.com/ajax/libs/select2/4.0.1/js/select2.min.js"></script>
+
+      <!-- build:js(.) scripts/plugins.js -->
+      <script src="/bower_components/bootstrap-sass/assets/javascripts/bootstrap/affix.js"></script>
+      <script src="/bower_components/bootstrap-sass/assets/javascripts/bootstrap/alert.js"></script>
+      <script src="/bower_components/bootstrap-sass/assets/javascripts/bootstrap/dropdown.js"></script>
+      <script src="/bower_components/bootstrap-sass/assets/javascripts/bootstrap/tooltip.js"></script>
+      <script src="/bower_components/bootstrap-sass/assets/javascripts/bootstrap/modal.js"></script>
+      <script src="/bower_components/bootstrap-sass/assets/javascripts/bootstrap/transition.js"></script>
+      <script src="/bower_components/bootstrap-sass/assets/javascripts/bootstrap/button.js"></script>
+      <script src="/bower_components/bootstrap-sass/assets/javascripts/bootstrap/popover.js"></script>
+      <script src="/bower_components/bootstrap-sass/assets/javascripts/bootstrap/carousel.js"></script>
+      <script src="/bower_components/bootstrap-sass/assets/javascripts/bootstrap/scrollspy.js"></script>
+      <script src="/bower_components/bootstrap-sass/assets/javascripts/bootstrap/collapse.js"></script>
+      <script src="/bower_components/bootstrap-sass/assets/javascripts/bootstrap/tab.js"></script>
+      <!-- endbuild -->
+
+
+      <!-- build:js scripts/main.js -->
+      <script src="scripts/main.js"></script>
+      <!-- endbuild -->
+
+   </body>
+</html>

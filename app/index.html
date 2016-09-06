@@ -2,7 +2,7 @@
 
 <!-- 
    Author: Alex Dodge
-   Date  : December 4, 2015
+   Date  : September 8, 2016
    Description:
       This application is designed for use with google visulization api and querying google sheets.
       Using the api and it's associated query language it is possible to submit and retrieve specific
@@ -24,20 +24,8 @@
 
       <link rel="shortcut icon" href="/favicon.ico">
       <link rel="apple-touch-icon" href="/apple-touch-icon.png">
-      <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
 
-      <!-- build:css(.) styles/vendor.css -->
-      <!-- bower:css -->
-      <!-- endbower -->
-      <!-- endbuild -->
-
-      <!-- build:css(.tmp) styles/main.css -->
-      <link rel="stylesheet" href="styles/main.css">
-      <!-- endbuild -->
-
-      <!-- build:js scripts/vendor/modernizr.js -->
-      <script src="/bower_components/modernizr/modernizr.js"></script>
-      <!-- endbuild -->
+      <link type="text/css" rel="stylesheet" href="./css/main.css">
 
    </head>
    
@@ -52,11 +40,10 @@
             <div class="container-fluid">
                <div id="app-nav" class="navbar navbar-default navbar-fixed-top" role="navigation">
 
-                  <a class="navbar-brand" href="#">
-                     <img id="logo-image" class="img-responsive" src="images/hwh-logo-small.png" alt="brand image">
-                  </a>
-
-                  <h2 class="app-header">Halifax West Scholarship Finder</h2>
+                  <div class="navbar-brand">
+                     <span class="glyphicon glyphicon-user large-user"></span>
+                  </div>
+                  <h2 class="app-header">Student Scholarship Finder</h2>
                   
                   <ul class="nav pull-right return">
                      <li class="">
@@ -338,37 +325,18 @@
             <p>Alex Dodge &copy; 2015 </p>
          </div>
 
-   </div>
+      </div>
 
    
-      <!-- build:js(.) scripts/vendor.js -->
-      <!-- bower:js -->
-      <script src="/bower_components/jquery/dist/jquery.js"></script>
-      <!-- endbower -->
-      <!-- endbuild -->
-
+      <script type="text/javascript" src="/bower_components/jquery/dist/jquery.js"></script>
       <script type="text/javascript" src="https://www.google.com/jsapi"></script>
-      <script src="//cdnjs.cloudflare.com/ajax/libs/select2/4.0.1/js/select2.min.js"></script>
+      <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/select2/4.0.1/js/select2.min.js"></script>
 
-      <!-- build:js(.) scripts/plugins.js -->
-      <script src="/bower_components/bootstrap-sass/assets/javascripts/bootstrap/affix.js"></script>
-      <script src="/bower_components/bootstrap-sass/assets/javascripts/bootstrap/alert.js"></script>
-      <script src="/bower_components/bootstrap-sass/assets/javascripts/bootstrap/dropdown.js"></script>
-      <script src="/bower_components/bootstrap-sass/assets/javascripts/bootstrap/tooltip.js"></script>
-      <script src="/bower_components/bootstrap-sass/assets/javascripts/bootstrap/modal.js"></script>
-      <script src="/bower_components/bootstrap-sass/assets/javascripts/bootstrap/transition.js"></script>
-      <script src="/bower_components/bootstrap-sass/assets/javascripts/bootstrap/button.js"></script>
-      <script src="/bower_components/bootstrap-sass/assets/javascripts/bootstrap/popover.js"></script>
-      <script src="/bower_components/bootstrap-sass/assets/javascripts/bootstrap/carousel.js"></script>
-      <script src="/bower_components/bootstrap-sass/assets/javascripts/bootstrap/scrollspy.js"></script>
-      <script src="/bower_components/bootstrap-sass/assets/javascripts/bootstrap/collapse.js"></script>
-      <script src="/bower_components/bootstrap-sass/assets/javascripts/bootstrap/tab.js"></script>
-      <!-- endbuild -->
+      <script type="text/javascript" src="/node_modules/bootstrap-sass/assets/javascripts/bootstrap-sprockets.js"></script>
+      <script type="text/javascript" src="/node_modules/bootstrap-sass/assets/javascripts/bootstrap.js"></script>
 
 
-      <!-- build:js scripts/main.js -->
-      <script src="scripts/main.js"></script>
-      <!-- endbuild -->
+      <script type="text/javascript" src="scripts/main.js"></script>
 
    </body>
 </html>

@@ -1,6 +1,6 @@
 "use strict";
 // Load the Visualization API and the piechart package.
-google.load("visualization", "1.1", {packages:["table"]});
+google.load("visualization", "1", {packages:["table"]});
 
 // Test URL - Note that this URL is unsecure, so anyone can access the spreadsheet.
 // https://docs.google.com/spreadsheets/d/1ABtCqLWs0AJSpwpXo6stMZgs6pk4yyQilkjcfSDRH30/edit?usp=sharing

@@ -82,23 +82,32 @@
                   What would you like to search by?
                </div>
 
-               <div class="checkbox"><label><input id="student-checkbox" type="checkbox"> Student Name </label></div>
-               <div class="checkbox"><label><input id="school-checkbox" type="checkbox"> School </label></div>
-               <div class="checkbox"><label><input id="amount-checkbox" type="checkbox"> Scholarship Amount </label></div>
+               <div class="checkbox">
+                  <input id="student-checkbox" type="checkbox">
+                  <label> <span>Student Name</span> </label>
+               </div>
+
+               <div class="checkbox">
+                  <input id="school-checkbox" type="checkbox">  
+                  <label> <span>School</span> </label>
+               </div>
+
+               <div class="checkbox">
+                  <input id="amount-checkbox" type="checkbox"> 
+                  <label> <span>Scholarship Amount</span> </label>
+               </div>
+
             </div>
 
             <!-- Name search form section -->
             <div class="name-filter-container">
-               <p class="name-title"><b>Name Search</b></p>
-               <p class="small"> 
-                  Enter the name of a student below. Note that if you only use first and last
-                  name you will be able to pick all students with those first and last names.
-               </p>
+               <h2 class="name-title"><b>Search by Name</b></h2>
+               <h4> 
+                  Enter the first and last name of the student. Entering only one will return a list of students.
+               </h4>
 
                <!-- The form input for the unique Google Sheets URL -->
                <div class="form-group">
-                  <label for="first-name">Enter the first and/or last name of the student(s)</label>
-
                   <input type="text" class="form-control" id="first-name" placeholder="First name here" aria-describedby="sizing-addon1">
 
                   <div class="space" style="margin-top: 10px;"></div>
@@ -110,48 +119,63 @@
 
             <!-- School search form section -->
             <div class="school-filter-container">
-               <p class="school-title"><b>School Search</b></p>
-               <p class="small"> 
+               <h2 class="school-title"><b>Search by School</b></h2>
+               <p> 
                   Check whether you would like to search by junior high or elementary, then select the desired
                   school from the appropriate dropdown menu.
                </p>
 
-               <div class="radio">
-                  <p>Search by :</p>
-                  <label><input type="radio" name="optionsRadios" value="option1"> Junior High School </label>
-                  <label><input type="radio" name="optionsRadios" value="option2"> Elementary School </label>
-               </div>
-
                <!-- The form input for the unique Google Sheets URL -->
                <div class="form-group">
-                  <p><b>Select the school from the appropriate dropdown menu. If the school
-                  is not in the list, please enter the name of the school, or check the box to find
-                  all students who attended schools not in the school board.</b></p>
-
-                  <!-- Junior High School List -->
-                  <p class="junior-high-title">List of junior high schools :</p>
-                  <select class="form-control">
-                     <option>Bigger Junior High School</option>
-                     <option>Sunny Hill Junior High School</option>
-                     <option>Babbling Brook Junior High School</option>
-                  </select>
+                  
+                  <div class="container-fluid school-radio">
+                     <div class="row">
+                        <div class="radio radio-info col-xs-12 col-md-3">
+                           <input type="radio" name="optionsRadios" id="school-radio1" value="option1">
+                           <label for="school-radio1">Junior High School</label>
+                        </div>
+                        
+                        <!-- Junior High School List -->
+                        <div class="col-xs-12 col-md-9">                           
+                           <p class="junior-high-title">List of junior high schools :</p>
+                           <select class="form-control">
+                              <option>Bigger Junior High School</option>
+                              <option>Sunny Hill Junior High School</option>
+                              <option>Babbling Brook Junior High School</option>
+                           </select>
+                        </div>
+                     </div>
+                  </div>
 
                   <div class="space" style="margin-top: 10px;"></div>
 
-                  <p class="junior-high-title">List of elementary schools :</p>
-                  <select class="form-control">
-                     <option>Little Elementary School</option>
-                     <option>Sprout Elementary School</option>
-                     <option>Sunflower Elementary School</option>
-                  </select>
+                  <div class="container-fluid school-radio">
+                     <div class="row">
+                        <div class="radio radio-info col-xs-12 col-md-3">
+                           <input type="radio" name="optionsRadios" id="school-radio2" value="option2">
+                           <label for="school-radio2">Elementary School</label>
+                        </div>
+                        
+                        <!-- Junior High School List -->
+                        <div class="col-xs-12 col-md-9">                           
+                           <p class="junior-high-title">List of elementary schools :</p>
+                           <select class="form-control">
+                              <option>Little Elementary School</option>
+                              <option>Sprout Elementary School</option>
+                              <option>Sunflower Elementary School</option>
+                           </select>
+                        </div>
+                     </div>
+                  </div>
+
                </div>
                
             </div>
 
             <!-- Scholarship search form section -->
             <div class="amount-filter-container">
-               <p class="amount-title"><b>Amount Search</b></p>
-               <p class="small"> 
+               <h2 class="amount-title"><b>Search by Amount</b></h2>
+               <p> 
                   First choose whether you would like to search for a specific amount, an
                   amount less than the specified number, greater, or between. All of the
                   searches are inclusive of the entered number.
@@ -159,31 +183,56 @@
 
                <!-- The form input for the unique Google Sheets URL -->
                <div class="form-group">
-                  <div class="radio">
-                     <p>Search by amount:</p>
-                     <label><input type="radio" name="amountRadios" value="option1"> Equal to </label>
-                     <label><input type="radio" name="amountRadios" value="option2"> Greater than </label>
-                  </div>
 
-                  <div class="radio">
-                     <label><input type="radio" name="amountRadios" value="option3"> Greater than or equal to </label>
-                     <label><input type="radio" name="amountRadios" value="option4"> Less than </label>
-                  </div>
-
-                  <div class="radio">
-                     <label><input type="radio" name="amountRadios" value="option5"> Less than or equal to </label>
-                     <label><input type="radio" name="amountRadios" value="option5"> Between </label>
-                  </div>
-
-                  <div class="space" style="margin-top: 10px;"></div>
-
-                  <input type="text" class="form-control" id="first-scholar-amount" placeholder="First amount">
                   
-                  <div class="middle-text">
-                     <p>and</p>
-                  </div>
+                  <div class="container-fluid">
+                     <div class="row">
+                        <div class="col-xs-12 col-md-5">
+                           <div class="radio">
+                              <input type="radio" name="amountRadios" value="option1">
+                              <label> Equal to </label>
+                           </div>
+                           
+                           <div class="radio">
+                              <input type="radio" name="amountRadios" value="option2">
+                              <label> Greater than </label>
+                           </div>
 
-                  <input type="text" class="form-control" id="second-scholar-amount" placeholder="Second amount">
+                           <div class="radio">
+                              <input type="radio" name="amountRadios" value="option3">
+                              <label> Greater than or equal to </label>
+                           </div>
+
+                           <div class="radio">
+                              <input type="radio" name="amountRadios" value="option4">
+                              <label> Less than </label>
+                           </div>
+
+                           <div class="radio">
+                              <input type="radio" name="amountRadios" value="option5">
+                              <label> Less than or equal to </label>
+                           </div>
+
+                           <div class="radio">
+                              <input type="radio" name="amountRadios" value="option6">
+                              <label> Between </label>
+                           </div>
+                        </div>
+
+                        <div class="col-xs-12 col-md-7">
+                           
+                           <input type="text" class="form-control" id="first-scholar-amount" 
+                              placeholder="First amount">
+
+                           <div class="middle-text">
+                              <p>and</p>
+                           </div>
+
+                           <input type="text" class="form-control" id="second-scholar-amount" 
+                              placeholder="Second amount">
+                        </div>
+                     </div>
+                  </div>
                </div>
                
             </div>

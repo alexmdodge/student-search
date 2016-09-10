@@ -1,6 +1,7 @@
 @import "../node_modules/bootstrap-sass/assets/stylesheets/bootstrap-sprockets";
 @import "../node_modules/bootstrap-sass/assets/stylesheets/bootstrap-compass";
 @import "../node_modules/bootstrap-sass/assets/stylesheets/bootstrap";
+@import "awesome-bootstrap-checkbox";
 
 
 .browsehappy {
@@ -16,6 +17,7 @@ body {
   padding-bottom: 20px;
   font-family: 'PT Sans', sans-serif;
   font-size: 14pt;
+  color: #555;
 }
 
 .large-user {
@@ -31,13 +33,32 @@ body {
   font-size: 150%;
   font-weight: bold;
   padding: 0px 10px;
+  margin: 5px 0px 20px;
   border-left: 6px solid #337ab7;
+}
+
+.school-radio {
+  background-color: rgba(126,192,248,0.2);
+  padding: 10px 40px;
+  border-radius: 5px; 
 }
 
 .form-group-initial {
   background-color: rgba(126,192,248,0.9); 
   padding: 30px;
   border-radius: 10px;
+}
+
+.form-control {
+  display: block;
+}
+
+.middle-text {
+  display: block;
+}
+
+.side-radio {
+  display: inline-block;
 }
 
 /* Everything but the jumbotron gets side spacing for mobile first views */
@@ -101,17 +122,10 @@ body {
 }
 
 .name-title, .school-title, .amount-title {
-  background-color: #eee;
+  border-left: 6px solid rgba(126,192,248,0.5);
   display: inline-block;
-  font-style: italic;
-  border: 1px solid #888;
-  border-bottom-right-radius: 3px;
-  border-top-left-radius: 3px;
-  margin-top: -6px;
-  margin-left: -16px;
   text-align: center;
-  padding: 10px 5px;  
-  width: 200px;
+  padding: 5px 10px;  
 }
 
 .return {
@@ -131,7 +145,7 @@ div[class$="-filter-container"] {
   border: 1px solid #888;
   border-radius: 3px;
   display: none;
-  padding: 5px 15px;
+  padding: 10px 30px;
   margin: 10px 0px 20px;
 }
 

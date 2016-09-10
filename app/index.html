@@ -1,4 +1,4 @@
-<!doctype html>
+<!DOCTYPE html>
 
 <!-- 
    Author: Alex Dodge
@@ -24,6 +24,7 @@
       <link rel="shortcut icon" href="/favicon.ico">
       <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 
+      <link href="https://fonts.googleapis.com/css?family=PT+Sans" rel="stylesheet">
       <link type="text/css" rel="stylesheet" href="./css/main.css">
 
    </head>
@@ -57,8 +58,9 @@
 
          <div class="space" style="margin-top: 80px;"></div>
          
+         <!--  
          <div class="introduction">Use the fields below to search for and sort information from the
-         student information sheet concerning scholarships.</div>
+         student information sheet concerning scholarships.</div>-->
          
          <!--
          <div class="space" style="margin-top: 25px;"></div>
@@ -74,11 +76,11 @@
          <form id="google-sheet-query">
 
             <!-- The input for determining what fields to search with -->
-            <div class="form-group">
+            <div class="form-group form-group-initial">
 
-               <label for="google-url">
-                  What would you like to search by? (You may check multiple boxes for a detailed search)
-               </label>
+               <div class="search-title">
+                  What would you like to search by?
+               </div>
 
                <div class="checkbox"><label><input id="student-checkbox" type="checkbox"> Student Name </label></div>
                <div class="checkbox"><label><input id="school-checkbox" type="checkbox"> School </label></div>
@@ -123,134 +125,24 @@
                <!-- The form input for the unique Google Sheets URL -->
                <div class="form-group">
                   <p><b>Select the school from the appropriate dropdown menu. If the school
-                  is not an HRSB school, please enter the name of the school, or check the box to find
-                  all students who attended schools not in the HRSB.</b></p>
+                  is not in the list, please enter the name of the school, or check the box to find
+                  all students who attended schools not in the school board.</b></p>
 
                   <!-- Junior High School List -->
                   <p class="junior-high-title">List of junior high schools :</p>
                   <select class="form-control">
-                     <option>A.J. Smeltzer Junior High</option>
-                     <option>Astral Drive Junior High</option>
-                     <option>Bicentennial School</option>
-                     <option>Brookside Junior High</option>
-                     <option>Caledonia Junior High</option>
-                     <option>Clayton Park Junior High</option>
-                     <option>Cunard Junior High</option>
-                     <option>Eastern Passage Education Centre</option>
-                     <option>Elizabeth Sutherland</option>
-                     <option>Ellenvale Junior High</option>
-                     <option>Eric Graves Memorial Junior High</option>
-                     <option>Fairview Junior High</option>
-                     <option>Five Bridges Junior High</option>
-                     <option>Gaetz Brook Junior High</option>
-                     <option>Georges P. Vanier Junior High</option>
-                     <option>Gorsebrook Junior High</option>
-                     <option>Graham Creighton Junior High</option>
-                     <option>Halifax Central Junior High</option>
-                     <option>Harold T. Barrett Junior High</option>
-                     <option>Herring Cove Road Junior High</option>
-                     <option>Highland Park Junior High</option>
-                     <option>John Martin Junior High</option>
-                     <option>Leslie Thomas Junior High</option>
-                     <option>Madeline Symonds Middle School</option>
-                     <option>Musquodoboit Valley Education Centre</option>
-                     <option>Oxford School</option>
-                     <option>Oyster Pond Academy</option>
-                     <option>Park West School</option>
-                     <option>Prince Arthur Junior High</option>
-                     <option>Ross Road School</option>
-                     <option>Rocky Lake Junior High</option>
-                     <option>Sackville Heights Junior High</option>
-                     <option>Sir Robert Borden</option>
-                     <option>St. Agnes Junior High</option>
-                     <option>Rockingstone Heights</option>
-                     <option>Ridgecliff Middle School</option>
+                     <option>Bigger Junior High School</option>
+                     <option>Sunny Hill Junior High School</option>
+                     <option>Babbling Brook Junior High School</option>
                   </select>
 
                   <div class="space" style="margin-top: 10px;"></div>
 
                   <p class="junior-high-title">List of elementary schools :</p>
                   <select class="form-control">
-                     <option>Admiral Westphal Elementary</option>
-                     <option>Alderney Elementary</option>
-                     <option>Ash Lee Jefferson Elementary</option>
-                     <option>Atlantic Memorial - Terrence Bay Elementary</option>
-                     <option>Atlantic View Elementary</option>
-                     <option>Beaver Bank-Kinsac Elementary</option>
-                     <option>Beaver Bank-Monarch Drive Elementary</option>
-                     <option>Beechville Lakeside Timberlea Elementary</option>
-                     <option>Bel Ayr Elementary</option>
-                     <option>Brookhouse Elementary</option>
-                     <option>Burton Ettinger Elementary</option>
-                     <option>Calwell Road Elementary</option>
-                     <option>Caudle Park Elementary</option>
-                     <option>Cavalier Drive School</option>
-                     <option>Central Spryfield Elementary</option>
-                     <option>Chebucto Heights Elementary</option>
-                     <option>Colby Village Elementary</option>
-                     <option>Colonel Stuart Elementary</option>
-                     <option>Chrichton Park Elementary</option>
-                     <option>Duc d'Anville Elementary</option>
-                     <option>Dutch Settlement Elementary</option>
-                     <option>East St. Margaret's Elementary</option>
-                     <option>Eastern Consolidated Elementary</option>
-                     <option>Elizabeth Sutherland</option>
-                     <option>Fairview Heights Elementary</option>
-                     <option>George Bissett Elementary</option>
-                     <option>Grosvenor-Wentworth Park Elementary</option>
-                     <option>Hammonds Plains Consolidated Elementary</option>
-                     <option>Harbour View Elementary</option>
-                     <option>Harrietsfield Elementary</option>
-                     <option>Harry R. Hamilton Elementary</option>
-                     <option>Hawthorn Elementary</option>
-                     <option>Hillside Park Elementary</option>
-                     <option>Holland Road Elementary</option>
-                     <option>Humber Park Elementary</option>
-                     <option>Ian Forsyth Elementary</option>
-                     <option>Inglis Street Elementary</option>
-                     <option>John MacNeil Elementary</option>
-                     <option>John W. MacLeod - Fleming Tower Elementary</option>
-                     <option>Joseph Giles Elementary</option>
-                     <option>Joseph Howe Elementary</option>
-                     <option>Kingswood Elementary</option>
-                     <option>Lakefront Consildated Elementary</option>
-                     <option>LeMarchant-St. Thomas Elementary</option>
-                     <option>Michael Wallace Elementary</option>
-                     <option>Millwood Elementary</option>
-                     <option>Mount Edward Elementary</option>
-                     <option>Nelson Whynder</option>
-                     <option>O'Connell Drive Elementary</option>
-                     <option>Ocean View Elementary</option>
-                     <option>Oldfield Consolidated Elementary</option>
-                     <option>Porters Lake Elementary</option>
-                     <option>Portland Estates Elementary</option>
-                     <option>Prospect Road Elementary</option>
-                     <option>Robert Kemp Turner Elementary</option>
-                     <option>Rockingham Elementary</option>
-                     <option>Rockingstone Height School</option>
-                     <option>Sackville Heights Elementary</option>
-                     <option>Saint Mary's Elementary</option>
-                     <option>Sambro Elementary</option>
-                     <option>Seaside Elementary</option>
-                     <option>Shannon Park Elementary</option>
-                     <option>Shatford Memorial Elementary</option>
-                     <option>Sheet Harbour Consolidated Elementary</option>
-                     <option>Sir Charles Tupper Elementary</option>
-                     <option>Smokey Drive Elementary</option>
-                     <option>South Woodside Elementary</option>
-                     <option>Southdale-North Woodside Elementary</option>
-                     <option>Springvale Elementary</option>
-                     <option>St. Catherine's Elementary</option>
-                     <option>St. Joseph's-Alexander McKay Elementary</option>
-                     <option>St. Margaret's Bay Elementary</option>
-                     <option>St. Stephen's Elementary</option>
-                     <option>Sunnyside Elementary</option>
-                     <option>Sycamore Lane Elementary</option>
-                     <option>Tantallon Elementary</option>
-                     <option>Upper Musquodoboit Consolidated Elementary</option>
-                     <option>Waverley Memorial</option>
-                     <option>Westmount Elementary</option>
-                     <option>William King Elementary</option>
+                     <option>Little Elementary School</option>
+                     <option>Sprout Elementary School</option>
+                     <option>Sunflower Elementary School</option>
                   </select>
                </div>
                
@@ -285,20 +177,20 @@
 
                   <div class="space" style="margin-top: 10px;"></div>
 
-                  <input type="text" class="form-control" id="first-scholar-amount" placeholder="First amount" aria-describedby="sizing-addon1">
+                  <input type="text" class="form-control" id="first-scholar-amount" placeholder="First amount">
                   
                   <div class="middle-text">
                      <p>and</p>
                   </div>
 
-                  <input type="text" class="form-control" id="second-scholar-amount" placeholder="Second amount" aria-describedby="sizing-addon1">
+                  <input type="text" class="form-control" id="second-scholar-amount" placeholder="Second amount">
                </div>
                
             </div>
 
             <div class="submit-section">
-               <div class="btn btn-success disabled">Submit Information</div>
-               <div class="btn btn-info disabled">Reset Form</div>
+               <div class="submit-query btn btn-success disabled">Submit Information</div>
+               <div class="reset-form btn btn-info disabled">Reset Form</div>
             </div>
          </form>
 
@@ -321,7 +213,7 @@
          <div class="space" style="margin-top: 50px;"></div>
 
          <div class="footer">
-            <p>Alex Dodge &copy; 2015 </p>
+            <p>Alex Dodge &copy; 2016 </p>
          </div>
 
       </div>

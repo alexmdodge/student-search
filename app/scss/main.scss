@@ -14,16 +14,30 @@
 body {
   padding-top: 30px;
   padding-bottom: 20px;
+  font-family: 'PT Sans', sans-serif;
+  font-size: 14pt;
 }
 
 .large-user {
   background-color: #555;
-  border: 5px solid #68B3CC;
-  border-radius: 5px;
-  padding: 5px;
-  margin-top: 5px;
+  border-radius: 100%;
+  padding: 10px;
+  margin: 5px 10px 5px 0;
   font-size: 150%;
-  color: #68B3CC;
+  color: #7ec0f8;
+}
+
+.search-title {
+  font-size: 150%;
+  font-weight: bold;
+  padding: 0px 10px;
+  border-left: 6px solid #337ab7;
+}
+
+.form-group-initial {
+  background-color: rgba(126,192,248,0.9); 
+  padding: 30px;
+  border-radius: 10px;
 }
 
 /* Everything but the jumbotron gets side spacing for mobile first views */
@@ -97,7 +111,7 @@ body {
   margin-left: -16px;
   text-align: center;
   padding: 10px 5px;  
-  width: 130px;
+  width: 200px;
 }
 
 .return {
@@ -107,10 +121,10 @@ body {
 
 .app-header {
   display: inline-block;
-  font-weight: 100;
-  font-style: italic;  
+  font-weight: bold;
   text-align: center;
-  margin: 20px 10px;
+  margin: 20px auto;
+  color: #555;
 }
 
 div[class$="-filter-container"] {

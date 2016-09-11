@@ -7684,6 +7684,12 @@ body {
   border-radius: 5px;
 }
 
+.amount-section-container {
+  background-color: rgba(126, 192, 248, 0.2);
+  padding: 30px 30px;
+  border-radius: 5px;
+}
+
 .form-group-initial {
   background-color: rgba(126, 192, 248, 0.9);
   padding: 30px;
@@ -7691,11 +7697,7 @@ body {
 }
 
 .form-control {
-  display: block;
-}
-
-.middle-text {
-  display: block;
+  width: 100%;
 }
 
 .side-radio {
@@ -7793,15 +7795,11 @@ div[class$="-filter-container"] {
   border-bottom: 2px solid #ddd;
 }
 
-#first-scholar-amount, #second-scholar-amount {
-  display: inline-block;
-  width: 45%;
-}
-
 .middle-text {
-  display: inline-block;
-  width: 5%;
+  padding: 20px;
   text-align: center;
+  font-size: 140%;
+  width: 100%;
 }
 
 .output-title {

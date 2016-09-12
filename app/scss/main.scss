@@ -29,6 +29,27 @@ body {
   color: #7ec0f8;
 }
 
+.check-label-center {
+  padding: 0px 10px;
+}
+
+// Fixes centering issue by making the checkbox larger to
+// fill the space.
+#google-sheet-query .checkbox input[type="checkbox"] {
+  padding: 20px;
+}
+
+#google-sheet-query .checkbox label::before {
+  height: 25px;
+  width: 25px;
+}
+
+#google-sheet-query .checkbox label::after {
+  height: 25px;
+  width: 25px;
+  font-size: 100%;
+}
+
 .search-title {
   font-size: 150%;
   font-weight: bold;

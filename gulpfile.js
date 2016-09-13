@@ -215,7 +215,7 @@ gulp.task('build-bower',['clean:dist'], function() {
 /* * * * * * * * * * WATCH TASKS * * * * * * * * * * * * * * * * * * * */
 
 gulp.task('watch', function() {
-	gulp.watch('app/js/**/*.js', ['test-scripts']);
+	gulp.watch('app/scripts/**/*.js', ['test-scripts']);
    gulp.watch('app/css/*.css');
 	gulp.watch('app/scss/*.scss', ['test-css']);
    gulp.watch('app/**/*.html', ['test-html']);

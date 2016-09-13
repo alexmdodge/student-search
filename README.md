@@ -6,10 +6,10 @@ As a potential solution I plan to find a way to populate a server with the data,
 
 It is also possible to interface this easily with a database. I'll set up some content and JavaScript options in the future to make that easy. Most likely a query object will be created which can be used with most SQL languages and formats, as the Google Visualization API uses it's own nearly identical version of SQL.
 
-## Table of Contents
-[Installation](#install) <br>
-[Usage](#usage) <br>
-[To-Do](#todo) <br>
+# Table of Contents
+*[Installation](#install) <br>
+*[Usage](#usage) <br>
+*[Upcoming Features and Progress](#todo) <br>
 
 <h1>
 	<a name="install" aria-hidden="true" class="anchor"></a>
@@ -56,15 +56,15 @@ When the submit button is clicked all of the form elements store their informati
 
 <h1>
 	<a name="todo" aria-hidden="true" class="anchor"></a>
-	To-Do List
+	Upcoming Features and Progress
 </h1>
 
 Below is a list of some things I have left to do and that have been on my mind for features.
 
 * User Interface
   * ~~form validation~~
+  * ~~add disabled features for schools and amount~~
   * font icons for better visual indication
-  * add disabled features for schools and amount
   * output table to format information effectively
   * selection to return all students in PDF
 * Functionality

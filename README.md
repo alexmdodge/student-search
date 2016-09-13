@@ -62,9 +62,9 @@ When the submit button is clicked all of the form elements store their informati
 Below is a list of some things I have left to do and that have been on my mind for features.
 
 * User Interface
-  * form validation
+  * ~~form validation~~
   * font icons for better visual indication
-  * number indicators (circles) to the amount section
+  * add disabled features for schools and amount
   * output table to format information effectively
   * selection to return all students in PDF
 * Functionality

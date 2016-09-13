@@ -202,55 +202,58 @@
                   
                   <div class="container-fluid">
                      <div class="row">
-                        <div class="col-xs-12 col-md-5">
-                           <div class="radio">
-                              <input type="radio" name="amountRadios" value="option1">
+                        <div class="col-xs-12 col-md-4">
+                           <div id="error-warning-amount" class="control-label hide">Please select an option</div>
+                           <div class="form-group radio">
+                              <input type="radio" name="amountRadios" id="amountRadios1" value="option1">
                               <label> Equal to </label>
                            </div>
                            
-                           <div class="radio">
+                           <div class="form-group radio">
                               <input type="radio" name="amountRadios" value="option2">
                               <label> Greater than </label>
                            </div>
 
-                           <div class="radio">
+                           <div class="form-group radio">
                               <input type="radio" name="amountRadios" value="option3">
                               <label> Greater than or equal to </label>
                            </div>
 
-                           <div class="radio">
+                           <div class="form-group radio">
                               <input type="radio" name="amountRadios" value="option4">
                               <label> Less than </label>
                            </div>
 
-                           <div class="radio">
+                           <div class="form-group radio">
                               <input type="radio" name="amountRadios" value="option5">
                               <label> Less than or equal to </label>
                            </div>
 
-                           <div class="radio">
+                           <div class="form-group radio">
                               <input type="radio" name="amountRadios" value="option6">
                               <label> Between </label>
                            </div>
                         </div>
 
-                        <div class="amount-section-container col-xs-12 col-md-7">
+                        <div class="amount-section-container col-xs-12 col-md-6">
                            <div class="container-fluid">
-                              <div class="row">
+                              <div class="form-group row">
                                  
-                                 <div class="amount-top col-md-12">
-                                    <input type="text" class="form-control" id="first-scholar-amount" 
-                                       placeholder="First amount">
-                                 </div>
+                                 <label class="control-label has-error hide" for="first-scholar-amount">
+                                    Please enter a number greater than 0
+                                 </label>
+                                 <input type="text" class="form-control" id="first-scholar-amount"           
+                                    placeholder="First amount">
 
                                  <div class="middle-text col-md-12">
                                     and
                                  </div>
 
-                                 <div class="amount-bottom col-md-12">
-                                    <input type="text" class="form-control" id="second-scholar-amount" 
-                                       placeholder="Second amount">
-                                 </div>
+                                 <label class="control-label has-error hide" for="second-scholar-amount">
+                                    Please enter a number greater than 0
+                                 </label>
+                                 <input type="text" class="form-control" id="second-scholar-amount" 
+                                          placeholder="Second amount">
 
                               </div>
                            </div>

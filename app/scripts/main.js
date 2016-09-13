@@ -116,27 +116,19 @@ function validateQuery(tempStatus) {
 
    if( tempStatus.isSchoolChecked ) {
 
-      if(debugging) {
-         console.log("School search triggered");
-      }
-
-      console.log($("input:radio[name='optionsRadios']").is(":checked"));         
       if ( !$("input:radio[name='optionsRadios']").is(":checked") ) { 
          $("input:radio[name='optionsRadios']").parent('.form-group').addClass('has-error');
          $("input:radio[name='optionsRadios']").prev('.control-label').removeClass('hide');
          isValid = false;
       }
       
-      console.log("dropwdown: " + $('#junior-high-select').val());
-      if ( $('#junior-high-select').val() === "Click to choose a junior high school" 
-            && !$('#school-radio2').is(':checked')) {
+      if ( $('#junior-high-select').val() === "Click to choose a junior high school" && !$('#school-radio2').is(':checked')) {
          $('#junior-high-select').prev('.dropdown-error').removeClass('hide');
          isValid = false;
       }
 
 
-      if ( $('#elementary-select').val() === "Click to choose an elementary school"
-            && !$('#school-radio1').is(':checked')) {
+      if ( $('#elementary-select').val() === "Click to choose an elementary school" && !$('#school-radio1').is(':checked')) {
          $('#elementary-select').prev('.dropdown-error').removeClass('hide');
          isValid = false;
       }
@@ -146,24 +138,35 @@ function validateQuery(tempStatus) {
 
    if( tempStatus.isAmountChecked ) {
 
-      if(debugging) {
-         console.log("Amount search triggered");
-      }
-
-      if (!$('input[name=amountRadios]:checked').val() ) {          
-         $('input[name=amountRadios]:checked').addClass('has-error');
+      if ( !$("input:radio[name='amountRadios']").is(":checked") ) {          
+         $("input:radio[name='amountRadios']").parent('form-group').addClass('has-error');
+         $('.form-group .control-label').removeClass('hide');
          isValid = false;
       }
 
-      if ( !$('first-scholar-amount').val() && !$('first-scholar-amount').hasClass('disabled') ) {
-         $('first-scholar-amount').addClass('has-error');         
+      if ( !$('#first-scholar-amount').val() && !$('#first-scholar-amount').hasClass('disabled') ) {
+         $('#first-scholar-amount').parents('form-group').addClass('has-error');         
+         $('#first-scholar-amount').prev('.control-label').removeClass('hide');
          isValid = false;
       }
 
-      if ( !$('second-scholar-amount').val() && !$('secon-scholar-amount').hasClass('disabled') ) {
-         $('second-scholar-amount').addClass('has-error');         
+      if ( !$('#second-scholar-amount').val() && !$('#second-scholar-amount').hasClass('disabled') ) {
+         $('#second-scholar-amount').parents('form-group').addClass('has-error');
+         $('#second-scholar-amount').prev('.control-label').removeClass('hide'); 
          isValid = false;
       }
+
+      if ( !$.isNumeric($('#first-scholar-amount').val()) || $('#first-scholar-amount').val() < 0) {
+         $('#first-scholar-amount').prev('.control-label').removeClass('hide');
+         isValid = false;
+      }
+
+      if ( !$.isNumeric($('#second-scholar-amount').val()) || $('#second-scholar-amount').val() < 0) {
+         $('#second-scholar-amount').prev('.control-label').removeClass('hide'); 
+         isValid = false;
+      }
+   
+
    }
 
    /* Will scroll to the error message at the top of the application */

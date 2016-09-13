@@ -37,6 +37,7 @@ body {
 }
 
 .control-label {
+  color: #ff7777;
   font-size: 90%;
   font-weight: normal;
 }
@@ -91,6 +92,10 @@ body {
   background-color: rgba(126,192,248,0.2);
   padding: 30px 30px;
   border-radius: 5px; 
+}
+
+#error-warning-amount {
+  color: #ff7777;
 }
 
 .form-group-initial {

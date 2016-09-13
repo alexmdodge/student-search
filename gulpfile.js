@@ -60,13 +60,13 @@ var gulp   = require('gulp'),
  * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 
 gulp.task('test-scripts', function() {
-   gulp.src(['app/scripts/**/*.js', '!app/scripts/**/min.js'])
+   gulp.src(['scripts/**/*.js', '!scripts/**/min.js'])
       .pipe(plumber())
       .pipe(reload({stream:true}));
 });
 
 gulp.task('build-scripts',['clean:dist'], function() {
-   gulp.src(['app/js/**/*.js', '!app/js/**/min.js'])
+   gulp.src(['scripts/**/*.js', '!scripts/**/min.js'])
       .pipe(plumber())
       .pipe(uglify())
       .pipe(gulp.dest('dist/js'))
@@ -83,13 +83,13 @@ gulp.task('build-scripts',['clean:dist'], function() {
  * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 
 gulp.task('test-css', function() {
-   gulp.src('app/scss/main.scss')
+   gulp.src('scss/main.scss')
 
       .pipe(plumber())
       .pipe(compass({
          config_file: './config.rb',
-         css: 'app/css',
-         sass: 'app/scss'
+         css: 'css',
+         sass: 'scss'
       }))
       .pipe(reload({stream:true}));
 });
@@ -119,7 +119,7 @@ gulp.task('build-css-vendor',['clean:dist'], function() {
  * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 
 gulp.task('test-html', function() {
-   gulp.src('app/**/*.html')
+   gulp.src('**/*.html')
    .pipe(reload({stream:true}));
 });
 
@@ -137,7 +137,7 @@ gulp.task('build-html',['clean:dist'], function() {
 gulp.task('browser-sync', function() {
    browserSync({
       server: {
-         baseDir: "./app/",
+         baseDir: "./",
       }
    });
 });
@@ -182,12 +182,12 @@ gulp.task('clean:dist', function (callBack) {
  * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 
 gulp.task('build-fonts',['clean:dist'], function() {
-   gulp.src('app/fonts/**/*.{ttf,woff,woff2,eof,eot,otf,svg}')
+   gulp.src('fonts/**/*.{ttf,woff,woff2,eof,eot,otf,svg}')
    .pipe(gulp.dest('dist/fonts'));
 });
 
 gulp.task('build-images',['clean:dist'], function() {
-   gulp.src('app/images/**/*.{png,jpg,ico,svg}')
+   gulp.src('images/**/*.{png,jpg,ico,svg}')
    .pipe(gulp.dest('dist/img'));
 });
 
@@ -215,10 +215,10 @@ gulp.task('build-bower',['clean:dist'], function() {
 /* * * * * * * * * * WATCH TASKS * * * * * * * * * * * * * * * * * * * */
 
 gulp.task('watch', function() {
-	gulp.watch('app/scripts/**/*.js', ['test-scripts']);
-   gulp.watch('app/css/*.css');
-	gulp.watch('app/scss/*.scss', ['test-css']);
-   gulp.watch('app/**/*.html', ['test-html']);
+	gulp.watch('scripts/**/*.js', ['test-scripts']);
+   gulp.watch('css/*.css');
+	gulp.watch('scss/*.scss', ['test-css']);
+   gulp.watch('**/*.html', ['test-html']);
 });
 
 /* * * * * * * * * * LAYERED TASKS * * * * * * * * * * * * * * * * * * */

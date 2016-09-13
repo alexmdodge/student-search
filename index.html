@@ -141,14 +141,14 @@
                   
                   <div class="container-fluid school-radio">
                      <div class="row">
-                        <div class="form-group radio radio-info col-xs-12 col-md-3">
+                        <div class="form-group radio radio-info col-xs-12 col-md-4">
                            <div class="control-label hide">Please select an option</div>
                            <input type="radio" name="optionsRadios" id="school-radio1" value="option1">
-                           <label for="school-radio1">Junior High School</label>
+                           <label for="school-radio1"><span class="school-title-label">Junior High School</span></label>
                         </div>
                         
                         <!-- Junior High School List -->
-                        <div class="col-xs-12 col-md-9">                           
+                        <div class="col-xs-12 col-md-8">                           
                            <span class="dropdown-error glyphicon glyphicon-exclamation-sign pull-right hide"></span>
                            <select id="junior-high-select" class="form-control">
                               <option class="default">Click to choose a junior high school</option>
@@ -164,14 +164,14 @@
 
                   <div class="container-fluid school-radio">
                      <div class="row">
-                        <div class="form-group radio radio-info col-xs-12 col-md-3">
+                        <div class="form-group radio radio-info col-xs-12 col-md-4">
                            <div class="control-label hide">Please select an option</div>
                            <input type="radio" name="optionsRadios" id="school-radio2" value="option2">
-                           <label for="school-radio2">Elementary School</label>
+                           <label for="school-radio2"><span class="school-title-label">Elementary School</span></label>
                         </div>
                         
                         <!-- Junior High School List -->
-                        <div class="col-xs-12 col-md-9">
+                        <div class="col-xs-12 col-md-8">
                            <span class="dropdown-error glyphicon glyphicon-exclamation-sign pull-right hide"></span>
                            <select id="elementary-select" class="form-control">
                               <option class="default">Click to choose an elementary school</option>
@@ -206,54 +206,59 @@
                            <div id="error-warning-amount" class="control-label hide">Please select an option</div>
                            <div class="form-group radio">
                               <input type="radio" name="amountRadios" id="amountRadios1" value="option1">
-                              <label> Equal to </label>
+                              <label for="amountRadios1"><span class="school-title-label">Equal to</span></label>
                            </div>
                            
                            <div class="form-group radio">
-                              <input type="radio" name="amountRadios" value="option2">
-                              <label> Greater than </label>
+                              <input type="radio" name="amountRadios" id="amountRadios2" value="option2">
+                              <label for="amountRadios2"> <span class="school-title-label"> Greater than</span> </label>
                            </div>
 
                            <div class="form-group radio">
-                              <input type="radio" name="amountRadios" value="option3">
-                              <label> Greater than or equal to </label>
+                              <input type="radio" name="amountRadios" id="amountRadios3" value="option4">
+                              <label for="amountRadios3"> <span class="school-title-label">Less than</span> </label>
                            </div>
 
                            <div class="form-group radio">
-                              <input type="radio" name="amountRadios" value="option4">
-                              <label> Less than </label>
+                              <input type="radio" name="amountRadios" id="amountRadios4" value="option3">
+                              <label for="amountRadios4"> <span class="school-title-label">Greater than or equal to</span></label>
+                           </div>
+
+
+                           <div class="form-group radio">
+                              <input type="radio" name="amountRadios" id="amountRadios5" value="option5">
+                              <label for="amountRadios5"> <span class="school-title-label">Less than or equal to</span> </label>
                            </div>
 
                            <div class="form-group radio">
-                              <input type="radio" name="amountRadios" value="option5">
-                              <label> Less than or equal to </label>
-                           </div>
-
-                           <div class="form-group radio">
-                              <input type="radio" name="amountRadios" value="option6">
-                              <label> Between </label>
+                              <input type="radio" name="amountRadios" id="amountRadios6" value="option6">
+                              <label for="amountRadios6"> <span class="school-title-label">Between</span> </label>
                            </div>
                         </div>
 
                         <div class="amount-section-container col-xs-12 col-md-6">
                            <div class="container-fluid">
-                              <div class="form-group row">
+                              <div class="row">
                                  
-                                 <label class="control-label has-error hide" for="first-scholar-amount">
-                                    Please enter a number greater than 0
-                                 </label>
-                                 <input type="text" class="form-control" id="first-scholar-amount"           
-                                    placeholder="First amount">
+                                 <div class="form-group">
+                                    <label class="control-label has-error hide" for="first-scholar-amount">
+                                       Please enter a positive number
+                                    </label>
+                                    <input type="text" class="form-control" id="first-scholar-amount"           
+                                       placeholder="First amount">
+                                 </div>
 
                                  <div class="middle-text col-md-12">
                                     and
                                  </div>
 
-                                 <label class="control-label has-error hide" for="second-scholar-amount">
-                                    Please enter a number greater than 0
-                                 </label>
-                                 <input type="text" class="form-control" id="second-scholar-amount" 
-                                          placeholder="Second amount">
+                                 <div class="form-group">
+                                    <label class="control-label has-error hide" for="second-scholar-amount">
+                                       Please enter a positive number
+                                    </label>
+                                    <input type="text" class="form-control" id="second-scholar-amount" 
+                                             placeholder="Second amount">
+                                 </div>
 
                               </div>
                            </div>

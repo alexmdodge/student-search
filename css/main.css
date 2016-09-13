@@ -10546,7 +10546,7 @@ body {
 }
 
 .dropdown-error {
-  margin-top: 15px;
+  margin-top: 27px;
   margin-bottom: -25px;
   margin-right: 30px;
 }
@@ -10607,6 +10607,22 @@ body {
 
 .form-control {
   width: 100%;
+  margin: 20px 0px;
+}
+
+.form-group .radio label::after {
+  padding: 8px;
+  margin: 12px 10px 0px -25px;
+}
+
+.form-group .radio label::before {
+  padding: 10px;
+  margin: 12px 10px 0px -25px;
+}
+
+.school-title-label {
+  display: inline-block;
+  margin-top: 10px;
 }
 
 .side-radio {

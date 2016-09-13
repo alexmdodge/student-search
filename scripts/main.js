@@ -11,8 +11,8 @@
  *                          Student Query Application
  *                     Author: Alex Dodge |  License: MIT
  *                             
- *                               Version 0.2.1
- *                             September 12, 2016
+ *                               Version 0.2.2
+ *                             September 13, 2016
  *
  *
  *  
@@ -74,42 +74,32 @@ function constructStudentQuery(queryState) {
 function validateQuery(tempStatus) {
    var isValid = true;
 
-   if(debugging) {
-      console.log("Status of searches after validation called, before checked:");
-      console.log("Student name search: " + tempStatus.isStudentChecked);
-      console.log("School name search: " + tempStatus.isSchoolChecked);
-      console.log("Amount name search: " + tempStatus.isAmountChecked);
-   }  
-
    // These statements can be optizimzed by using the parents or children functions
    // Validates all fields in the search for school section
    if( tempStatus.isStudentChecked ) {
 
-      if(debugging) {
-         console.log($('#first-name').val());
-         console.log($('#last-name').val());
-      }
-
       if( !$('#first-name').val() ) {
-
-         if(debugging) {
-            console.log("First name if triggers");
-         }
 
          $('#first-name').parent('.form-group').addClass('has-error');
          $('#first-name').prev('.control-label').removeClass('hide');
          isValid = false;
+
+      } else {
+
+         $('#first-name').prev('.control-label').addClass('hide');
+
       }
 
       if( !$('#last-name').val() ) {
 
-         if(debugging) {
-            console.log("Last name if triggers");
-         }
-
          $('#last-name').parent('.form-group').addClass('has-error');
          $('#last-name').prev('.control-label').removeClass('hide');
          isValid = false;
+
+      } else {
+         
+         $('#last-name').prev('.control-label').addClass('hide');
+
       }
    } 
 
@@ -117,9 +107,15 @@ function validateQuery(tempStatus) {
    if( tempStatus.isSchoolChecked ) {
 
       if ( !$("input:radio[name='optionsRadios']").is(":checked") ) { 
+
          $("input:radio[name='optionsRadios']").parent('.form-group').addClass('has-error');
          $("input:radio[name='optionsRadios']").prev('.control-label').removeClass('hide');
          isValid = false;
+
+      } else {
+         
+         $("input:radio[name='optionsRadios']").prev('.control-label').addClass('hide');
+
       }
       
       if ( $('#junior-high-select').val() === "Click to choose a junior high school" && !$('#school-radio2').is(':checked')) {
@@ -138,32 +134,42 @@ function validateQuery(tempStatus) {
 
    if( tempStatus.isAmountChecked ) {
 
-      if ( !$("input:radio[name='amountRadios']").is(":checked") ) {          
+      if ( !$("input:radio[name='amountRadios']").is(":checked") ) {   
          $("input:radio[name='amountRadios']").parent('form-group').addClass('has-error');
          $('.form-group .control-label').removeClass('hide');
          isValid = false;
+      } else {
+         $('.form-group .control-label').addClass('hide');
       }
 
-      if ( !$('#first-scholar-amount').val() && !$('#first-scholar-amount').hasClass('disabled') ) {
-         $('#first-scholar-amount').parents('form-group').addClass('has-error');         
-         $('#first-scholar-amount').prev('.control-label').removeClass('hide');
-         isValid = false;
+      if(!$('#first-scholar-amount').is(':disabled')) {
+         if ( !$('#first-scholar-amount').val() ) {
+            $('#first-scholar-amount').parent('form-group').addClass('has-error');         
+            $('#first-scholar-amount').prev('.control-label').removeClass('hide');
+            isValid = false;
+         }
+
+         if ( !($.isNumeric($('#first-scholar-amount').val())) || $('#first-scholar-amount').val() < 0) {
+            $('#first-scholar-amount').prev('.control-label').removeClass('hide');
+            isValid = false;
+         } else {
+            $('#first-scholar-amount').prev('.control-label').addClass('hide');
+         }
       }
 
-      if ( !$('#second-scholar-amount').val() && !$('#second-scholar-amount').hasClass('disabled') ) {
-         $('#second-scholar-amount').parents('form-group').addClass('has-error');
-         $('#second-scholar-amount').prev('.control-label').removeClass('hide'); 
-         isValid = false;
-      }
+      if(!$('#second-scholar-amount').is(':disabled')) {
+         if ( !$('#second-scholar-amount').val() ) {
+            $('#second-scholar-amount').parent('form-group').addClass('has-error');         
+            $('#second-scholar-amount').prev('.control-label').removeClass('hide');
+            isValid = false;
+         }
 
-      if ( !$.isNumeric($('#first-scholar-amount').val()) || $('#first-scholar-amount').val() < 0) {
-         $('#first-scholar-amount').prev('.control-label').removeClass('hide');
-         isValid = false;
-      }
-
-      if ( !$.isNumeric($('#second-scholar-amount').val()) || $('#second-scholar-amount').val() < 0) {
-         $('#second-scholar-amount').prev('.control-label').removeClass('hide'); 
-         isValid = false;
+         if ( !($.isNumeric($('#second-scholar-amount').val())) || $('#second-scholar-amount').val() < 0) {
+            $('#second-scholar-amount').prev('.control-label').removeClass('hide');
+            isValid = false;
+         } else {
+            $('#second-scholar-amount').prev('.control-label').addClass('hide');
+         }
       }
    
 
@@ -177,6 +183,7 @@ function validateQuery(tempStatus) {
       }, 2000);
 
      $('#error-container').removeClass('hide');
+     $('.form-group').removeClass('has-success');
    } else {
       $('#error-container').addClass('hide');
       $('.control-label').addClass('hide');
@@ -310,17 +317,18 @@ $(document).ready(function() {
       }
    });
 
+   $('input:radio[name=amountRadios]').click(function() {
+      if(($('input:radio[name=amountRadios]:checked').val()) === "option6") {
+         $('#second-scholar-amount').attr('disabled', false);
+      } else {
+         $('#second-scholar-amount').attr('disabled', true);
+      }
+   });
+
    /* Validates the data, and submits the query object to the visualization query function */
    $('#submit-query').click(function() {
       
       if( !$('#submit-query').hasClass('disabled') ) {
-
-         if(debugging) {
-            console.log("Status of searches before validation:");
-            console.log("Student name search: " + status.isStudentChecked);
-            console.log("School name search: " + status.isSchoolChecked);
-            console.log("Amount name search: " + status.isAmountChecked);
-         }  
 
          var isValidated = validateQuery(status);
          console.log("Value of isValidated is: " + isValidated);

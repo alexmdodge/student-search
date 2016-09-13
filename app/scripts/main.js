@@ -11,8 +11,8 @@
  *                          Student Query Application
  *                     Author: Alex Dodge |  License: MIT
  *                             
- *                               Version 0.0.0
- *                             September 10, 2016
+ *                               Version 0.2.1
+ *                             September 12, 2016
  *
  *
  *  
@@ -42,6 +42,152 @@ google.load("visualization", "1", {packages:["table", "piechart"]});
 // the console window.
 var debugging = true;
 
+/* 
+ * function: constructStudentQuery
+ * parameters: queryState
+ * description: Takes the queryState and translates each object variable into
+                a query string which is appended to the general query which is
+                returned at the end.
+ *
+ * Parameter def: 
+ *    queryState --> This parameter is an object which contains all of the
+ *                   validated fields from the submitted query. It uses the
+ *                   information about which boxes were clicked and which
+ *                   information was entered.
+ */
+function constructStudentQuery(queryState) {
+
+}
+
+/* 
+ * function: validateQuery
+ * parameters: tempState
+ * description: Checks which options the user is searching by, then validates the fields
+                and data entries for each of the possible options.
+ *
+ * Parameter def: 
+ *    tempStatus --> contains the three boolean variables,
+ *          -- isStudentCheck
+ *          -- isSchoolChecked
+ *          -- isAmountChecked
+ */
+function validateQuery(tempStatus) {
+   var isValid = true;
+
+   if(debugging) {
+      console.log("Status of searches after validation called, before checked:");
+      console.log("Student name search: " + tempStatus.isStudentChecked);
+      console.log("School name search: " + tempStatus.isSchoolChecked);
+      console.log("Amount name search: " + tempStatus.isAmountChecked);
+   }  
+
+   // These statements can be optizimzed by using the parents or children functions
+   // Validates all fields in the search for school section
+   if( tempStatus.isStudentChecked ) {
+
+      if(debugging) {
+         console.log($('#first-name').val());
+         console.log($('#last-name').val());
+      }
+
+      if( !$('#first-name').val() ) {
+
+         if(debugging) {
+            console.log("First name if triggers");
+         }
+
+         $('#first-name').parent('.form-group').addClass('has-error');
+         $('#first-name').prev('.control-label').removeClass('hide');
+         isValid = false;
+      }
+
+      if( !$('#last-name').val() ) {
+
+         if(debugging) {
+            console.log("Last name if triggers");
+         }
+
+         $('#last-name').parent('.form-group').addClass('has-error');
+         $('#last-name').prev('.control-label').removeClass('hide');
+         isValid = false;
+      }
+   } 
+
+
+   if( tempStatus.isSchoolChecked ) {
+
+      if(debugging) {
+         console.log("School search triggered");
+      }
+
+      console.log($("input:radio[name='optionsRadios']").is(":checked"));         
+      if ( !$("input:radio[name='optionsRadios']").is(":checked") ) { 
+         $("input:radio[name='optionsRadios']").parent('.form-group').addClass('has-error');
+         $("input:radio[name='optionsRadios']").prev('.control-label').removeClass('hide');
+         isValid = false;
+      }
+      
+      console.log("dropwdown: " + $('#junior-high-select').val());
+      if ( $('#junior-high-select').val() === "Click to choose a junior high school" 
+            && !$('#school-radio2').is(':checked')) {
+         $('#junior-high-select').prev('.dropdown-error').removeClass('hide');
+         isValid = false;
+      }
+
+
+      if ( $('#elementary-select').val() === "Click to choose an elementary school"
+            && !$('#school-radio1').is(':checked')) {
+         $('#elementary-select').prev('.dropdown-error').removeClass('hide');
+         isValid = false;
+      }
+
+   } 
+
+
+   if( tempStatus.isAmountChecked ) {
+
+      if(debugging) {
+         console.log("Amount search triggered");
+      }
+
+      if (!$('input[name=amountRadios]:checked').val() ) {          
+         $('input[name=amountRadios]:checked').addClass('has-error');
+         isValid = false;
+      }
+
+      if ( !$('first-scholar-amount').val() && !$('first-scholar-amount').hasClass('disabled') ) {
+         $('first-scholar-amount').addClass('has-error');         
+         isValid = false;
+      }
+
+      if ( !$('second-scholar-amount').val() && !$('secon-scholar-amount').hasClass('disabled') ) {
+         $('second-scholar-amount').addClass('has-error');         
+         isValid = false;
+      }
+   }
+
+   /* Will scroll to the error message at the top of the application */
+
+   if(!isValid) {
+      $('html, body').animate({
+           scrollTop: $('#error-message').offset().top
+      }, 2000);
+
+     $('#error-container').removeClass('hide');
+   } else {
+      $('#error-container').addClass('hide');
+      $('.control-label').addClass('hide');
+      $('.form-group').removeClass('has-error');
+      $('.form-group').addClass('has-success');
+      $('.form-group-initial').removeClass('has-success');
+      $('.dropdown-error').addClass('hide');
+   }
+
+   return isValid;
+}
+
+
+
 
 
 /* 
@@ -55,8 +201,6 @@ var debugging = true;
  *                   validated fields from the submitted query. It uses the
  *                   information about which boxes were clicked and which
  *                   information was entered.
- *
- *
  */
 function init(queryState) {
 
@@ -74,7 +218,7 @@ function init(queryState) {
     */
 
    var urlString = "https://docs.google.com/spreadsheets/d/1ABtCqLWs0AJSpwpXo6stMZgs6pk4yyQilkjcfSDRH30/edit?usp=sharing";
-   var queryString = $('#student-query').val();
+   var queryString = constructStudentQuery(queryState);
 
    // Use these statements to ensure queries are workin properly and values are retrieved
    if (debugging) {
@@ -104,65 +248,132 @@ function handleQueryResponse(response) {
 }
 
 function enableSubmit() {
-   if( $('.submit-query').hasClass('disabled') ) {
-      $('.submit-query').removeClass('disabled');
+   if( $('#submit-query').hasClass('disabled') ) {
+      $('#submit-query').removeClass('disabled');
    }
 }
 
-function disableSubmit(student, school, amount) {
-   if( !$('.submit-query').hasClass('disabled') ) {
-      if( !student && !school &&  !amount)
-      $('.submit-query').addClass('disabled');
+function disableSubmit(tempStatus) {
+   if( !$('#submit-query').hasClass('disabled') ) {
+      if( !tempStatus.isStudentChecked && !tempStatus.isSchoolChecked &&  !tempStatus.isAmountChecked) {
+         $('#submit-query').addClass('disabled');
+      }
    }
 }
 
 $(document).ready(function() {
-   var isStudentChecked = false;
-   var isSchoolChecked = false;
-   var isAmountChecked = false;
+   var status = {
+      isStudentChecked: false,
+      isSchoolChecked: false,
+      isAmountChecked: false
+   };
 
    $('#student-checkbox').click(function() {
       if ( $('#student-checkbox').prop('checked') ) {
          $('.name-filter-container').slideDown('fast');
          $('.submit-button').fadeIn('fast');
-         isStudentChecked = true;
+         status.isStudentChecked = true;
          enableSubmit();
          
       } else {
          $('.name-filter-container').slideUp('fast');
-         isStudentChecked = false;
-         disableSubmit(isStudentChecked, isSchoolChecked, isAmountChecked);
+         status.isStudentChecked = false;
+         disableSubmit(status);
       }
    });
 
    $('#school-checkbox').click(function() {
       if ( $('#school-checkbox').prop('checked') ) {
          $('.school-filter-container').slideDown('fast');
-         isSchoolChecked = true;
+         status.isSchoolChecked = true;
          enableSubmit();
          
       } else {
          $('.school-filter-container').slideUp('fast');
-         isSchoolChecked = false;
-         disableSubmit(isStudentChecked, isSchoolChecked, isAmountChecked);
+         status.isSchoolChecked = false;
+         disableSubmit(status);
       }
    });
 
    $('#amount-checkbox').click(function() {
       if ( $('#amount-checkbox').prop('checked') ) {
          $('.amount-filter-container').slideDown('fast');
-         isAmountChecked = true;
+         status.isAmountChecked = true;
          enableSubmit();
       } else {
          $('.amount-filter-container').slideUp('fast');
-         isAmountChecked = false;
-         disableSubmit(isStudentChecked, isSchoolChecked, isAmountChecked);
+         status.isAmountChecked = false;
+         disableSubmit(status);
       }
    });
 
-   /*
-   $('#student-checkbox').click(function() {
-      init();
+   /* Validates the data, and submits the query object to the visualization query function */
+   $('#submit-query').click(function() {
+      
+      if( !$('#submit-query').hasClass('disabled') ) {
+
+         if(debugging) {
+            console.log("Status of searches before validation:");
+            console.log("Student name search: " + status.isStudentChecked);
+            console.log("School name search: " + status.isSchoolChecked);
+            console.log("Amount name search: " + status.isAmountChecked);
+         }  
+
+         var isValidated = validateQuery(status);
+         console.log("Value of isValidated is: " + isValidated);
+
+         if(isValidated) {
+
+
+            /* Object: queryState
+             * 
+             * useName, useSchool, useAmount
+             * - - - - - - - - - - - - - - -
+             * All of these variables store information about whether or not their
+             * associated variables are going to be used
+             *
+             *
+             * firstName, lastName
+             * - - - - - - - - - - - - - - -
+             * These are stored as names when the search by students field is selected.
+             * The variables are empty strings otherwise.
+             *
+             *
+             * elemSchool, juniorSchool
+             * - - - - - - - - - - - - - - -
+             * These are stored as names when the search by school field is selected.
+             * The variables are empty strings otherwise.
+             *
+             *
+             * firstAmount, secondAmount
+             * - - - - - - - - - - - - - - -
+             * These are stored as names when the search by amount field is selected.
+             * The first amount is used in the calculations and queries only involving
+             * one number. The secondAmount is used for the calculations involving two
+             * numbers like 'greater than __ or equal to __'.
+             *
+             *
+             * amountLogic
+             * - - - - - - - - - - - - - - -
+             * This is an integer between 0 and 5. It will act as the array index for
+             * the logic required to determine the query language for the numeric
+             * entries.
+             *
+             */
+
+            var queryState = {
+               useName: false,
+               firstName: '',
+               lastName: '',
+               useSchool: false,
+               elemSchool: '',
+               juniorSchool: '',
+               useAmount: false,
+               firstAmount: null,
+               secondAmount: null,
+               amountLogic: null
+            };
+         }
+      }
    });
-   */
 });

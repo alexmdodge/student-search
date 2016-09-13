@@ -99,19 +99,30 @@
 
             </div>
 
+            <div id="error-container" class="hide">
+               <span class="exclaim glyphicon glyphicon-exclamation-sign pull-left"></span> 
+               <h4 id="error-message">
+                  There are errors in your search. Please make sure each field is filled in below.
+               </h4>
+            </div>
+
             <!-- Name search form section -->
             <div class="name-filter-container">
                <h2 class="name-title"><b>Search by Name</b></h2>
                <h4> 
-                  Enter the first and last name of the student. Entering only one will return a list of students.
+                  Enter the first and last name of the student.
                </h4>
 
                <!-- The form input for the unique Google Sheets URL -->
                <div class="form-group">
+                  <label class="control-label hide" for="first-name">Please enter a first name</label>
                   <input type="text" class="form-control" id="first-name" placeholder="First name here" aria-describedby="sizing-addon1">
+               </div>
 
                   <div class="space" style="margin-top: 10px;"></div>
 
+               <div class="form-group">                  
+                  <label class="control-label hide" for="first-name">Please enter a last name</label>
                   <input type="text" class="form-control" id="last-name" placeholder="Last name here" aria-describedby="sizing-addon1">
                </div>
                
@@ -130,15 +141,17 @@
                   
                   <div class="container-fluid school-radio">
                      <div class="row">
-                        <div class="radio radio-info col-xs-12 col-md-3">
+                        <div class="form-group radio radio-info col-xs-12 col-md-3">
+                           <div class="control-label hide">Please select an option</div>
                            <input type="radio" name="optionsRadios" id="school-radio1" value="option1">
                            <label for="school-radio1">Junior High School</label>
                         </div>
                         
                         <!-- Junior High School List -->
                         <div class="col-xs-12 col-md-9">                           
-                           <p class="junior-high-title">List of junior high schools :</p>
-                           <select class="form-control">
+                           <span class="dropdown-error glyphicon glyphicon-exclamation-sign pull-right hide"></span>
+                           <select id="junior-high-select" class="form-control">
+                              <option class="default">Click to choose a junior high school</option>
                               <option>Bigger Junior High School</option>
                               <option>Sunny Hill Junior High School</option>
                               <option>Babbling Brook Junior High School</option>
@@ -151,15 +164,17 @@
 
                   <div class="container-fluid school-radio">
                      <div class="row">
-                        <div class="radio radio-info col-xs-12 col-md-3">
+                        <div class="form-group radio radio-info col-xs-12 col-md-3">
+                           <div class="control-label hide">Please select an option</div>
                            <input type="radio" name="optionsRadios" id="school-radio2" value="option2">
                            <label for="school-radio2">Elementary School</label>
                         </div>
                         
                         <!-- Junior High School List -->
-                        <div class="col-xs-12 col-md-9">                           
-                           <p class="junior-high-title">List of elementary schools :</p>
-                           <select class="form-control">
+                        <div class="col-xs-12 col-md-9">
+                           <span class="dropdown-error glyphicon glyphicon-exclamation-sign pull-right hide"></span>
+                           <select id="elementary-select" class="form-control">
+                              <option class="default">Click to choose an elementary school</option>
                               <option>Little Elementary School</option>
                               <option>Sprout Elementary School</option>
                               <option>Sunflower Elementary School</option>
@@ -247,7 +262,7 @@
             </div>
 
             <div class="submit-section">
-               <div class="submit-query btn btn-success disabled">Submit Information</div>
+               <div id="submit-query" class="btn btn-success disabled">Start Search</div>
                <div class="reset-form btn btn-info disabled">Reset Form</div>
             </div>
          </form>

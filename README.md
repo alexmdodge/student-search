@@ -7,9 +7,9 @@ As a potential solution I plan to find a way to populate a server with the data,
 It is also possible to interface this easily with a database. I'll set up some content and JavaScript options in the future to make that easy. Most likely a query object will be created which can be used with most SQL languages and formats, as the Google Visualization API uses it's own nearly identical version of SQL.
 
 # Table of Contents
-*[Installation](#install) <br>
-*[Usage](#usage) <br>
-*[Upcoming Features and Progress](#todo) <br>
+* [Installation](#install) <br>
+* [Usage](#usage) <br>
+* [Upcoming Features and Progress](#todo) <br>
 
 <h1>
 	<a name="install" aria-hidden="true" class="anchor"></a>

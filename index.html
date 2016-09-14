@@ -283,33 +283,39 @@
                <h3 class="output-title">Search Output</h3>
 
                <div class="options-panel">
-                  <div class="btn btn-primary">Save to PDF</div>
-                  <div class="btn btn-info">Print Output</div>
+                  <div id="to-pdf" class="btn btn-primary">Save to PDF</div>
+                  <div id="print-button" class="btn btn-info">Print Output</div>
                </div>
             </div>
 
-            <div id="table-output">
-               <div class="student-overview-container"> 
+            <!-- Begin Student Overview -->
+            <div id="student-overview" class="student-overview-container"> 
 
-                  <div class="student-overview-title">
-                     <div class="student-overview-scholarship">
-                        <p> Scholarship Amount:</p>
-                     </div>
-                     <div class="student-overview-personal">
-                        <h2 class="student-overview-name"></h2>
-                        <small class="student-overview-address"></small>
-                     </div>
-                     <div class="student-overview-schools">
-                        <p></p>
-                     </div>
-                     <div class="divider"></div>
+               <div class="student-overview-title">
+                  <div class="student-overview-scholarship">
+                     Scholarship Amount: 
                   </div>
-
-
-                  <div class="student-overview-bio">
-                     <p> </p>
+                  <div class="student-overview-personal">
+                     <h2 class="student-overview-name"></h2>
+                     <small class="student-overview-address"></small>
                   </div>
+                  <div class="student-overview-schools">
+                     <p></p>
+                  </div>
+                  <div class="divider"></div>
                </div>
+
+
+               <div class="student-overview-bio">
+                  <p> </p>
+               </div>
+            </div> 
+            <!-- End of Student Overview -->
+
+            <div id="no-student" class="hide">There is no student stored with that information.</div>
+            <div id="table-output">
+
+
             </div>
 
          </div>
@@ -331,6 +337,12 @@
       <script type="text/javascript" src="/node_modules/bootstrap-sass/assets/javascripts/bootstrap.js"></script>
 
 
+      <script type="text/javascript" src="scripts/jspdf.debug.js"></script>
+      <script type="text/javascript" src="scripts/from_html.js"></script>
+      <script type="text/javascript" src="scripts/addhtml.js"></script>
+      <script type="text/javascript" src="scripts/png_support.js"></script>
+      <script type="text/javascript" src="scripts/split_text_to_size.js"></script>
+      <script type="text/javascript" src="scripts/standard_fonts_metrics.js"></script>
       <script type="text/javascript" src="scripts/main.js"></script>
 
    </body>

@@ -10537,7 +10537,8 @@ body {
   display: none;
 }
 
-#error-container {
+#error-container,
+#no-student {
   padding: 10px 15px;
   border-radius: 5px;
   background-color: rgba(255, 70, 70, 0.4);
@@ -10765,10 +10766,15 @@ div[class$="-filter-container"] {
 }
 
 .student-overview-container {
-  display: none;
   background-color: #eee;
   padding: 15px 35px;
+  margin: 10px 0px;
   border-radius: 5px;
+  border: 1px solid #ccc;
+}
+
+#student-overview {
+  display: none;
 }
 
 .student-overview-name {
@@ -10781,7 +10787,7 @@ div[class$="-filter-container"] {
   font-style: italic;
 }
 
-.student-overview-scholarship p {
+.student-overview-scholarship {
   float: right;
   border-radius: 5px;
   width: 40%;

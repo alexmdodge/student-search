@@ -1,8 +1,8 @@
 "use strict";
 
-/* * * * JSHint Global Definitions * * */
-/* globals $, google, console, alert   */
-/* * * * * * * * * * * * * * * * * * * */
+/* * * * JSHint Global Definitions * * * * * */
+/* globals $, google, console, alert, jsPDF */
+/* * * * * * * * * * * * * * * * * * * * * * */
 
 
 /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
@@ -38,6 +38,22 @@
  */
 google.load("visualization", "1", {packages:["table", "piechart"]});
 
+function toPDF() {
+
+   var doc = new jsPDF();
+   var specialElementHandlers = {
+      '#editor': function (element, renderer) {
+         return true;
+      }
+   };
+
+   doc.fromHTML($('#table-output').html(), 15, 15, {
+      'width': 170,
+      'elementHandlers': specialElementHandlers
+   });
+
+   doc.save('student-scholarships.pdf');
+}
 
 /* 
  * function: validateQuery
@@ -307,11 +323,27 @@ function handleQueryResponse(response) {
    }
 
    var data = response.getDataTable();
-   var table = new google.visualization.Table(document.getElementById('table-output'));
-   table.draw(data, {showRowNumber: true, width: '100%', height: '100%'});
+   $('#table-output').empty();
+   console.log(data.getNumberOfRows());
 
+   if (data.getNumberOfRows() > 0) {
+      $('#no-student').addClass('hide');
+      for (var row = 0; row < data.getNumberOfRows(); row++) {
+         var newOverview = $('#student-overview').clone();
+         newOverview.attr('id','student-overview'+row);
+         newOverview.appendTo('#table-output');
 
-   
+         newOverview.find('.student-overview-scholarship').append(''+data.getValue(row,6) + '$');
+         newOverview.find('.student-overview-name').append(data.getValue(row,1) + ' ' + data.getValue(row,2) );
+         newOverview.find('.student-overview-address').append(''+data.getValue(row,3));
+         newOverview.find('.student-overview-schools').append(data.getValue(row,4) + ', ' + data.getValue(row,5));
+         newOverview.find('.student-overview-bio').append(''+data.getValue(row,7));
+
+      }
+   } else {
+      $('#no-student').removeClass('hide');
+   }
+
    $('#api-loading').hide();
 }
 
@@ -375,6 +407,14 @@ $(document).ready(function() {
       }
    });
 
+   $('#print-button').click(function() {
+      window.print();
+   });
+
+   $('#to-pdf').click(function() {
+      toPDF();
+   });
+
    $('input:radio[name=amountRadios]').click(function() {
       if(($('input:radio[name=amountRadios]:checked').val()) === "option6") {
          $('#second-scholar-amount').attr('disabled', false);
@@ -382,6 +422,8 @@ $(document).ready(function() {
          $('#second-scholar-amount').attr('disabled', true);
       }
    });
+
+
 
    /* Validates the data, and submits the query object to the visualization query function */
    $('#submit-query').click(function() {

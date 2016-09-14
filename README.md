@@ -65,15 +65,16 @@ Below is a list of some things I have left to do and that have been on my mind f
   * ~~form validation~~
   * ~~add disabled features for schools and amount~~
   * font icons for better visual indication
-  * output table to format information effectively
-  * selection to return all students in PDF
+  * ~~output table to format information effectively~~
+  * ~~selection to return all students in PDF~~
+  * pdf return with one student per page
 * Functionality
-  * query object construction from validated elements
-  * query statement construction from query object
-  * submit success and return table to view
-  * print (button)
+  * ~~query object construction from validated elements~~
+  * ~~query statement construction from query object~~
+  * ~~submit success and return table to view~~
+  * ~~print (button)~~
   * reset (button)
-  * output to pdf (button)
+  * ~~output to pdf (button)~~
 * Database Security
   * add login feature or return feature where Google Sheet URL is stored in secure php. When site is visited and user validated, then return the URL to the query variable
   * use third party source for validation login

@@ -215,12 +215,12 @@
                            </div>
 
                            <div class="form-group radio">
-                              <input type="radio" name="amountRadios" id="amountRadios3" value="option4">
+                              <input type="radio" name="amountRadios" id="amountRadios3" value="option3">
                               <label for="amountRadios3"> <span class="school-title-label">Less than</span> </label>
                            </div>
 
                            <div class="form-group radio">
-                              <input type="radio" name="amountRadios" id="amountRadios4" value="option3">
+                              <input type="radio" name="amountRadios" id="amountRadios4" value="option4">
                               <label for="amountRadios4"> <span class="school-title-label">Greater than or equal to</span></label>
                            </div>
 
@@ -272,6 +272,7 @@
             <div class="submit-section">
                <div id="submit-query" class="btn btn-success disabled">Start Search</div>
                <div class="reset-form btn btn-info disabled">Reset Form</div>
+               <img id="api-loading" src="images/loading.gif">
             </div>
          </form>
 
@@ -287,7 +288,28 @@
                </div>
             </div>
 
-            <div id="table-output"></div>
+            <div id="table-output">
+               <div class="student-overview-container"> 
+
+                  <div class="student-overview-title">
+                     <h2 class="student-name">Alex Modge</h2>
+                     <div class="student-overview-schools">
+                        <p> Elementary School </p>
+                        <p> Junior High School </p>
+                     </div>
+                     <small class="student-overview-address">Address is Here with other stuff</small>
+                     <hr>
+                  </div>
+
+                  <div class="student-overview-scholarship">
+                     <h3> Scholarship Amount: 20,000$</h3>
+                  </div>
+
+                  <div class="student-overview-bio">
+                     <p> This is my lovely bio</p>
+                  </div>
+               </div>
+            </div>
 
          </div>
 

@@ -30,6 +30,11 @@ body {
   color: #7ec0f8;
 }
 
+#api-loading {
+  width: 30px;
+  display: none;
+}
+
 #error-container {
   padding: 10px 15px;
   border-radius: 5px;

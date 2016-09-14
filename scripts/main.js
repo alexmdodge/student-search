@@ -38,22 +38,6 @@
  */
 google.load("visualization", "1", {packages:["table", "piechart"]});
 
-/* 
- * function: constructStudentQuery
- * parameters: queryState
- * description: Takes the queryState and translates each object variable into
-                a query string which is appended to the general query which is
-                returned at the end.
- *
- * Parameter def: 
- *    queryState --> This parameter is an object which contains all of the
- *                   validated fields from the submitted query. It uses the
- *                   information about which boxes were clicked and which
- *                   information was entered.
- */
-function constructStudentQuery(queryState) {
-
-}
 
 /* 
  * function: validateQuery
@@ -194,6 +178,90 @@ function validateQuery(tempStatus) {
 
 
 
+/* 
+ * function: constructStudentQuery
+ * parameters: queryState
+ * description: Takes the queryState and translates each object variable into
+                a query string which is appended to the general query which is
+                returned at the end.
+ *
+ * Parameter def: 
+ *    queryState --> This parameter is an object which contains all of the
+ *                   validated fields from the submitted query. It uses the
+ *                   information about which boxes were clicked and which
+ *                   information was entered.
+ */
+function constructStudentQuery(queryState) {
+   var queryString = 'select * Where ';
+
+   if( queryState.useName ) {
+      var firstNameQuery = 'B contains "' + queryState.firstName + '" and ' ;
+      var lastNameQuery = 'C contains "' + queryState.lastName + '" and ';
+      console.log(firstNameQuery);
+      console.log(lastNameQuery);
+      queryString = queryString + firstNameQuery + lastNameQuery;
+   }
+
+   if( queryState.useJuniorSchool ) {
+      var juniorQuery = 'F contains "' + queryState.juniorSchool + '" and ';
+      queryString = queryString + juniorQuery;
+      console.log(juniorQuery);
+   }
+   
+   if( queryState.useElemSchool ) {
+      var elemQuery = 'E contains "' + queryState.elemSchool + '" and ';
+      queryString = queryString + elemQuery;
+      console.log(elemQuery);
+   }
+
+   if( queryState.useAmount ) {
+      var amountQuery = '';
+      switch(queryState.amountLogic) {
+         case 0:
+            amountQuery = 'G = ' + queryState.firstAmount + ' and ';
+            queryString = queryString + amountQuery;
+            console.log(amountQuery);
+            break;
+         case 1:
+            amountQuery = 'G > ' + queryState.firstAmount + ' and ';
+            queryString = queryString + amountQuery;
+            console.log(amountQuery);
+            break;
+         case 2:
+            amountQuery = 'G < ' + queryState.firstAmount + ' and ';
+            queryString = queryString + amountQuery;
+            console.log(amountQuery);
+            break;
+         case 3:
+            amountQuery = 'G >= ' + queryState.firstAmount + ' and ';
+            queryString = queryString + amountQuery;
+            console.log(amountQuery);
+            break;
+         case 4:
+            amountQuery = 'G <= ' + queryState.firstAmount + ' and ';
+            queryString = queryString + amountQuery;
+            console.log(amountQuery);
+            break;
+         case 5:
+            if (queryState.firstAmount <= queryState.secondAmount) {
+               amountQuery = 'G >= ' + queryState.firstAmount + ' and G <= ' + queryState.secondAmount + ' and ';
+               queryString = queryString + amountQuery;
+            } else {
+               amountQuery = 'G >= ' + queryState.secondAmount + ' and G <= ' + queryState.firstAmount + ' and ';
+               queryString = queryString + amountQuery;
+            }
+            console.log(amountQuery);
+            break;
+         default:
+            console.log('No logic detected in amount query.');
+      }
+   }
+
+   queryString = queryString.substring(0,queryString.length-5);
+   console.log(queryString);
+   return queryString;
+
+}
 
 
 /* 
@@ -224,10 +292,10 @@ function init(queryState) {
     */
 
    var urlString = "https://docs.google.com/spreadsheets/d/1ABtCqLWs0AJSpwpXo6stMZgs6pk4yyQilkjcfSDRH30/edit?usp=sharing";
-   var queryString = constructStudentQuery(queryState);
+   var queryStringFinal = constructStudentQuery(queryState);
 
    var query = new google.visualization.Query(urlString, opts);
-   query.setQuery(queryString);
+   query.setQuery(queryStringFinal);
    query.send(handleQueryResponse);
 }
 
@@ -242,9 +310,9 @@ function handleQueryResponse(response) {
    var table = new google.visualization.Table(document.getElementById('table-output'));
    table.draw(data, {showRowNumber: true, width: '100%', height: '100%'});
 
-   var csv = google.visualization.dataTableToCsv(data);
-   $('#csv-output').empty();
-   $('#csv-output').append(csv);
+
+   
+   $('#api-loading').hide();
 }
 
 function enableSubmit() {
@@ -424,6 +492,9 @@ $(document).ready(function() {
                      console.log("No case recognized.");
                }
             }
+
+            $('#api-loading').show();
+            init(queryState);
          }
       }
    });

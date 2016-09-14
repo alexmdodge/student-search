@@ -11,7 +11,7 @@
  *                          Student Query Application
  *                     Author: Alex Dodge |  License: MIT
  *                             
- *                               Version 0.2.2
+ *                               Version 0.3.2
  *                             September 13, 2016
  *
  *
@@ -37,10 +37,6 @@
  * the project.
  */
 google.load("visualization", "1", {packages:["table", "piechart"]});
-
-// Debugging is enabled by default, and debug messages will be displayed in
-// the console window.
-var debugging = true;
 
 /* 
  * function: constructStudentQuery
@@ -106,7 +102,7 @@ function validateQuery(tempStatus) {
 
    if( tempStatus.isSchoolChecked ) {
 
-      if ( !$("input:radio[name='optionsRadios']").is(":checked") ) { 
+      if ( !$('input:radio[name="optionsRadios"]').is(':checked') ) { 
 
          $("input:radio[name='optionsRadios']").parent('.form-group').addClass('has-error');
          $("input:radio[name='optionsRadios']").prev('.control-label').removeClass('hide');
@@ -134,7 +130,7 @@ function validateQuery(tempStatus) {
 
    if( tempStatus.isAmountChecked ) {
 
-      if ( !$("input:radio[name='amountRadios']").is(":checked") ) {   
+      if ( !$('input:radio[name="amountRadios"]').is(':checked') ) {   
          $("input:radio[name='amountRadios']").parent('form-group').addClass('has-error');
          $('.form-group .control-label').removeClass('hide');
          isValid = false;
@@ -230,12 +226,6 @@ function init(queryState) {
    var urlString = "https://docs.google.com/spreadsheets/d/1ABtCqLWs0AJSpwpXo6stMZgs6pk4yyQilkjcfSDRH30/edit?usp=sharing";
    var queryString = constructStudentQuery(queryState);
 
-   // Use these statements to ensure queries are workin properly and values are retrieved
-   if (debugging) {
-      console.log(queryString);
-      console.log(urlString);
-   }
-
    var query = new google.visualization.Query(urlString, opts);
    query.setQuery(queryString);
    query.send(handleQueryResponse);
@@ -330,10 +320,10 @@ $(document).ready(function() {
       
       if( !$('#submit-query').hasClass('disabled') ) {
 
-         var isValidated = validateQuery(status);
-         console.log("Value of isValidated is: " + isValidated);
+         var isDataValidated = validateQuery(status);
+         console.log("Value of isValidated is: " + isDataValidated);
 
-         if(isValidated) {
+         if(isDataValidated) {
 
 
             /* Object: queryState
@@ -374,16 +364,66 @@ $(document).ready(function() {
 
             var queryState = {
                useName: false,
-               firstName: '',
-               lastName: '',
-               useSchool: false,
-               elemSchool: '',
-               juniorSchool: '',
+               firstName: null,
+               lastName: null,
+               useElemSchool: false,
+               useJuniorSchool: false,
+               juniorSchool: null,
+               elemSchool: null,
                useAmount: false,
                firstAmount: null,
                secondAmount: null,
                amountLogic: null
             };
+
+            if(status.isStudentChecked) {
+               queryState.useName = true;
+               queryState.firstName = $('#first-name').val();
+               queryState.lastName = $('#last-name').val();
+            }
+
+            if(status.isSchoolChecked) {
+               if ($('input:radio[name=optionsRadios]:checked').val() === "option1") {
+                  queryState.useJuniorSchool = true;
+                  queryState.juniorSchool = $('#junior-high-select').val();
+               }
+
+               if ($('input:radio[name=optionsRadios]:checked').val() === "option2") {
+                  queryState.useElemSchool = true;
+                  queryState.elemSchool = $('#elementary-select').val();
+               }
+            }
+
+            if(status.isAmountChecked) {
+               queryState.useAmount = true;
+               queryState.firstAmount = $('#first-scholar-amount').val();
+               if( !$('#second-scholar-amount').is(':disabled')) {
+                  queryState.secondAmount = $('#second-scholar-amount').val();
+               }
+
+               switch($('input:radio[name=amountRadios]:checked').val()) {
+                  case 'option1':
+                     queryState.amountLogic = 0;
+                     break;
+                  case 'option2':
+                     queryState.amountLogic = 1;
+                     break;
+                  case 'option3':
+                     queryState.amountLogic = 2;
+                     break;
+                  case 'option4':
+                     queryState.amountLogic = 3;
+                     break;
+                  case 'option5':
+                     queryState.amountLogic = 4;
+                     break;
+                  case 'option6':
+                     queryState.amountLogic = 5;
+                     break;
+                  default:
+                     console.log("No case recognized.");
+               }
+            }
          }
       }
    });

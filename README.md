@@ -1,8 +1,6 @@
 # Student Search Application
 
-Originally developed for a high school I was working for. This application was designed for interfacing with Google Sheets. The teacher in charge of guidance wanted to be able to submit data from a Google form into a Google sheet, then still have access. The application is an interface which simplifies data from the sheet. The biggest concern from this is that security surrounding the sheets is not that great.
-
-As a potential solution I plan to find a way to populate a server with the data, then feed that to the website. It could also be possible to create a backend interface using php which would send and recieve requests.
+Originally developed for a high school I was working for. This application is designed to interface with Google Sheets. The teacher in charge of guidance wanted to be able to submit data from a Google form into a Google sheet, then still have access. The application is an interface which simplifies data from the sheet. The biggest concern from this is that security surrounding the sheets is not that great. The sheet will be placed behind a login screen using a PHP template and the backend which is running MySQL.
 
 It is also possible to interface this easily with a database. I'll set up some content and JavaScript options in the future to make that easy. Most likely a query object will be created which can be used with most SQL languages and formats, as the Google Visualization API uses it's own nearly identical version of SQL.
 
@@ -53,6 +51,8 @@ gulp
 Once you have the project running in your browser, you'll notice a couple of options. The main idea is that the user clicks and enters how they want to search for the particular student or groups of students. The submit button will not highlight until a field is used. Form validation is also used to ensure proper queries.
 
 When the submit button is clicked all of the form elements store their information in a query object which is passed to the visulization query funconion `init()`. This is where you could customize whether you use the Google Visualization API (which is actually pretty convenient for test purposes), or whether you set up your own database and query section.
+
+For some **test data** you can look directly at the google sheet [here](https://docs.google.com/spreadsheets/d/1ABtCqLWs0AJSpwpXo6stMZgs6pk4yyQilkjcfSDRH30/edit?usp=sharing), or you can simply place around with some of the amounts and school options.
 
 <h1>
 	<a name="todo" aria-hidden="true" class="anchor"></a>

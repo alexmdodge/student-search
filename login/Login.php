@@ -1,8 +1,9 @@
 <?php
 
 /**
- * Class login
- * handles the user's login and logout process
+ * This Login class handles the user logging in and logging out
+ * Note that registration is currently done on the back end on the
+ * setup of the server, as it is assumed that only one login is required
  */
 class Login
 {

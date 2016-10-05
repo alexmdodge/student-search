@@ -1,6 +1,6 @@
 # Student Search Application
 
-<img src="http://i.imgur.com/bKmWSGN.jpg" width="800px">
+<img src="http://i.imgur.com/bKmWSGN.jpg" width="900px">
 
 Originally developed for a high school I was working for. This application is designed to interface with Google Sheets. The teacher in charge of guidance wanted to be able to submit data from a Google form into a Google sheet, then still have access. The application is an interface which simplifies data from the sheet. The biggest concern from this is that security surrounding the sheets is not that great. The sheet will be placed behind a login screen using a PHP template and the backend which is running MySQL.
 
@@ -17,15 +17,9 @@ It is also possible to interface this easily with a database. I'll set up some c
 </h1>
 
 First clone the directory to your local system and ensure that NodeJS and npm are installed. For NodeJS
-head [here](https://nodejs.org/en/download/package-manager/). npm will come with the install! Check if they're installed using,
+head [here](https://nodejs.org/en/download/package-manager/). npm will come with the install! Check if they're installed using `node -v` and `npm -v`.
 
-```
-node -v
-npm -v
-```
-
-Navigate to the **app** directory (this is where the packages are installed) then in your console,
-
+Navigate to the Student Search directory and run the installation files,
 ```
 npm install
 ```
@@ -69,7 +63,7 @@ Below is a list of some things I have left to do and that have been on my mind f
   * font icons for better visual indication
   * ~~output table to format information effectively~~
   * ~~selection to return all students in PDF~~
-  * pdf return with one student per page
+  * ~~pdf return with one student per page~~
 * Functionality
   * ~~query object construction from validated elements~~
   * ~~query statement construction from query object~~
@@ -84,4 +78,6 @@ Below is a list of some things I have left to do and that have been on my mind f
 
 
 
-<a href="http://www.freepik.com/free-vector/seo-character-and-concepts_762794.htm">Designed by Freepik</a>
+<h6>
+<a href="http://www.freepik.com/free-vector/seo-character-and-concepts_762794.htm">Image Designed by Freepik</a>
+</h6>

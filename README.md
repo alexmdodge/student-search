@@ -1,5 +1,7 @@
 # Student Search Application
 
+<img src="http://i.imgur.com/bKmWSGN.jpg" width="800px">
+
 Originally developed for a high school I was working for. This application is designed to interface with Google Sheets. The teacher in charge of guidance wanted to be able to submit data from a Google form into a Google sheet, then still have access. The application is an interface which simplifies data from the sheet. The biggest concern from this is that security surrounding the sheets is not that great. The sheet will be placed behind a login screen using a PHP template and the backend which is running MySQL.
 
 It is also possible to interface this easily with a database. I'll set up some content and JavaScript options in the future to make that easy. Most likely a query object will be created which can be used with most SQL languages and formats, as the Google Visualization API uses it's own nearly identical version of SQL.
@@ -78,3 +80,8 @@ Below is a list of some things I have left to do and that have been on my mind f
 * Database Security
   * add login feature or return feature where Google Sheet URL is stored in secure php. When site is visited and user validated, then return the URL to the query variable
   * use third party source for validation login
+
+
+
+
+<a href="http://www.freepik.com/free-vector/seo-character-and-concepts_762794.htm">Designed by Freepik</a>

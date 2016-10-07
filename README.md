@@ -75,7 +75,26 @@ Below is a list of some things I have left to do and that have been on my mind f
   * add login feature or return feature where Google Sheet URL is stored in secure php. When site is visited and user validated, then return the URL to the query variable
   * use third party source for validation login
 
+# Docker
+This app will eventually be wrapped in a Docker image which will include a simple login service with a default password already setup. For the LAMP Image in use, run the image with,
 
+```
+sudo docker run -p 80:80 -t -i username/repository-name /bin/bash
+```
+Then start the web server and mysql database,
+
+```
+service apache2 start
+service mysql start
+```
+
+Then to pop back out and do other things hit `ctrl + p`then `ctrl + q`.
+
+If you want to get back in to the terminal to continue working on it,
+
+```
+docker exec -it container-id bash
+```
 
 
 <h6>

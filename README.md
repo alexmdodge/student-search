@@ -93,9 +93,14 @@ Then to pop back out and do other things hit `ctrl + p`then `ctrl + q`.
 If you want to get back in to the terminal to continue working on it,
 
 ```
-docker exec -it container-id bash
+docker exec -it container-id /bin/bash
 ```
 
+To commit changes to the most recent container,
+
+```
+docker commit container username/repository-name
+```
 
 <h6>
 <a href="http://www.freepik.com/free-vector/seo-character-and-concepts_762794.htm">Image Designed by Freepik</a>

@@ -2,9 +2,9 @@
 
 <img src="http://i.imgur.com/bKmWSGN.jpg" width="900px">
 
-Originally developed for a high school I was working for. This application is designed to interface with Google Sheets. The teacher in charge of guidance wanted to be able to submit data from a Google form into a Google sheet, then still have access. The application is an interface which simplifies data from the sheet. The biggest concern from this is that security surrounding the sheets is not that great. The sheet will be placed behind a login screen using a PHP template and the backend which is running MySQL.
+A search application that uses *Google Sheets* and the *Google Visualization API* to retrieve student information which was stored using a Google Form. The application can search by first and last name, school, and scholarship amount the student has retrieved so far. This application could be extended to anything, as the power is the simplicity of using Google Sheets as a database.
 
-It is also possible to interface this easily with a database. I'll set up some content and JavaScript options in the future to make that easy. Most likely a query object will be created which can be used with most SQL languages and formats, as the Google Visualization API uses it's own nearly identical version of SQL.
+For secure student information using the application in the secure-login directory. This is wrapped in a secure php login interface which uses modern php hashing and salting to secure passwords in a MySQL database.
 
 # Table of Contents
 * [Installation](#install) <br>
@@ -38,7 +38,7 @@ Go **back** to the home directory with the gulpfile in it, then you can run the 
 gulp
 ```
 
-**Other funcions to be added, as the gulp build breaks right now.**
+**Build functions have yet to be added**
 
 <h1>
 	<a name="usage" aria-hidden="true" class="anchor"></a>
@@ -72,8 +72,10 @@ Below is a list of some things I have left to do and that have been on my mind f
   * reset (button)
   * ~~output to pdf (button)~~
 * Database Security
-  * add login feature or return feature where Google Sheet URL is stored in secure php. When site is visited and user validated, then return the URL to the query variable
-  * use third party source for validation login
+  * ~~add login feature or return feature where Google Sheet URL is stored in secure php. When site is visited and user validated, then return the URL to the query variable~~
+  * ~~use third party source for validation login~~
+  * Finish styling and compiling build version of application
+  * Link running docker container with database information
 
 # Docker
 This app will eventually be wrapped in a Docker image which will include a simple login service with a default password already setup. For the LAMP Image in use, run the image with,
@@ -108,6 +110,10 @@ To commit changes to the most recent container,
 docker commit container username/repository-name
 ```
 
+
+
+
+### Contributions
 <h6>
 <a href="http://www.freepik.com/free-vector/seo-character-and-concepts_762794.htm">Image Designed by Freepik</a>
 </h6>

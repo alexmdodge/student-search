@@ -96,6 +96,12 @@ If you want to get back in to the terminal to continue working on it,
 docker exec -it container-id /bin/bash
 ```
 
+To copy changes from the local directory into the docker container use,
+
+```
+docker cp . containerName:/var/www/example.com/public_html
+```
+
 To commit changes to the most recent container,
 
 ```

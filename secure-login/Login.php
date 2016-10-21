@@ -5,6 +5,7 @@
  * Note that registration will be set up through an administrator
  * account which is created on the initialization of the database
  */
+
 class Login
 {
     /**

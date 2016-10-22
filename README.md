@@ -7,7 +7,7 @@ A search application that uses *Google Sheets* and the *Google Visualization API
 For secure student information using the application in the secure-login directory. This is wrapped in a secure php login interface which uses modern php hashing and salting to secure passwords in a MySQL database.
 
 # Table of Contents
-*[Demo](#demo)
+* [Demo](#demo)
   * [Login](#demo-login)
   * [Selecting Students](#demo-info)
   * [Docker Information](#demo-docker)

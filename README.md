@@ -28,7 +28,7 @@ If you would like to try out the application first head to my <a> projects page 
 	<a name="demo-login" aria-hidden="true" class="anchor"></a>
 	Login
 </h3>
-The default login information for the server is the same as provided in the docker container. If used it is **highly recommedned** you remove the login from the server and change the information.
+The default login information for the server is the same as provided in the docker container. If used it is **highly recommended** you remove the login from the server and change the information.
 ```
 username : admin
 password : admin123

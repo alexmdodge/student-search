@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 
-<!-- 
+<!--
    Author: Alex Dodge
    Date  : September 8, 2016
    Description:
@@ -16,7 +16,7 @@
 
       <meta charset="utf-8">
       <title>Student Scholarship Search</title>
-      
+
       <meta name="description" content="This is an application which allows the query
       and retrieval of student information stored within google sheets.">
       <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -28,7 +28,7 @@
       <link type="text/css" rel="stylesheet" href="./css/main.css">
 
    </head>
-   
+
    <body>
       <!--[if lt IE 10]>
       <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
@@ -44,7 +44,7 @@
                      <span class="glyphicon glyphicon-user large-user"></span>
                   </div>
                   <h2 class="app-header">Student Scholarship Finder</h2>
-                  
+
                   <ul class="nav pull-right return">
                      <li class="">
                         <!-- Return to the hosting sites main webpage -->
@@ -54,18 +54,18 @@
                </div>
             </div>
          </div>
-         
+
 
          <div class="space" style="margin-top: 80px;"></div>
-         
-         <!--  
+
+         <!--
          <div class="introduction">Use the fields below to search for and sort information from the
          student information sheet concerning scholarships.</div>-->
-         
+
          <!--
          <div class="space" style="margin-top: 25px;"></div>
 
-         <div class="info-section">Note that for google sheets, the columns are not referenced by the 
+         <div class="info-section">Note that for google sheets, the columns are not referenced by the
          actual name, but the ID. So for google sheets, if you wanted to select the first column, you
          would input <b>SELECT A</b>. This would print out only the first column. You would add functionality
          which reads the input and translates what the user inputs so that they could write the actual
@@ -88,19 +88,19 @@
                </div>
 
                <div class="checkbox">
-                  <input id="school-checkbox" type="checkbox">  
+                  <input id="school-checkbox" type="checkbox">
                   <label for="school-checkbox"> <span class="check-label-center">School</span> </label>
                </div>
 
                <div class="checkbox">
-                  <input id="amount-checkbox" type="checkbox"> 
+                  <input id="amount-checkbox" type="checkbox">
                   <label for="amount-checkbox"> <span class="check-label-center">Scholarship Amount</span> </label>
                </div>
 
             </div>
 
             <div id="error-container" class="hide">
-               <span class="exclaim glyphicon glyphicon-exclamation-sign pull-left"></span> 
+               <span class="exclaim glyphicon glyphicon-exclamation-sign pull-left"></span>
                <h4 id="error-message">
                   There are errors in your search. Please make sure each field is filled in below.
                </h4>
@@ -109,7 +109,7 @@
             <!-- Name search form section -->
             <div class="name-filter-container">
                <h2 class="name-title"><b>Search by Name</b></h2>
-               <h4> 
+               <h4>
                   Enter the first and last name of the student.
                </h4>
 
@@ -121,24 +121,24 @@
 
                   <div class="space" style="margin-top: 10px;"></div>
 
-               <div class="form-group">                  
+               <div class="form-group">
                   <label class="control-label hide" for="first-name">Please enter a last name</label>
                   <input type="text" class="form-control" id="last-name" placeholder="Last name here" aria-describedby="sizing-addon1">
                </div>
-               
+
             </div>
 
             <!-- School search form section -->
             <div class="school-filter-container">
                <h2 class="school-title"><b>Search by School</b></h2>
-               <p> 
+               <p>
                   Check whether you would like to search by junior high or elementary, then select the desired
                   school from the appropriate dropdown menu.
                </p>
 
                <!-- The form input for the unique Google Sheets URL -->
                <div class="form-group">
-                  
+
                   <div class="container-fluid school-radio">
                      <div class="row">
                         <div class="form-group radio radio-info col-xs-12 col-md-4">
@@ -146,9 +146,9 @@
                            <input type="radio" name="optionsRadios" id="school-radio1" value="option1">
                            <label for="school-radio1"><span class="school-title-label">Junior High School</span></label>
                         </div>
-                        
+
                         <!-- Junior High School List -->
-                        <div class="col-xs-12 col-md-8">                           
+                        <div class="col-xs-12 col-md-8">
                            <span class="dropdown-error glyphicon glyphicon-exclamation-sign pull-right hide"></span>
                            <select id="junior-high-select" class="form-control">
                               <option class="default">Click to choose a junior high school</option>
@@ -169,7 +169,7 @@
                            <input type="radio" name="optionsRadios" id="school-radio2" value="option2">
                            <label for="school-radio2"><span class="school-title-label">Elementary School</span></label>
                         </div>
-                        
+
                         <!-- Junior High School List -->
                         <div class="col-xs-12 col-md-8">
                            <span class="dropdown-error glyphicon glyphicon-exclamation-sign pull-right hide"></span>
@@ -184,13 +184,13 @@
                   </div>
 
                </div>
-               
+
             </div>
 
             <!-- Scholarship search form section -->
             <div class="amount-filter-container">
                <h2 class="amount-title"><b>Search by Amount</b></h2>
-               <p> 
+               <p>
                   First choose whether you would like to search for a specific amount, an
                   amount less than the specified number, greater, or between. All of the
                   searches are inclusive of the entered number.
@@ -199,7 +199,7 @@
                <!-- The form input for the unique Google Sheets URL -->
                <div class="form-group">
 
-                  
+
                   <div class="container-fluid">
                      <div class="row">
                         <div class="col-xs-12 col-md-4">
@@ -208,7 +208,7 @@
                               <input type="radio" name="amountRadios" id="amountRadios1" value="option1">
                               <label for="amountRadios1"><span class="school-title-label">Equal to</span></label>
                            </div>
-                           
+
                            <div class="form-group radio">
                               <input type="radio" name="amountRadios" id="amountRadios2" value="option2">
                               <label for="amountRadios2"> <span class="school-title-label"> Greater than</span> </label>
@@ -239,12 +239,12 @@
                         <div class="amount-section-container col-xs-12 col-md-6">
                            <div class="container-fluid">
                               <div class="row">
-                                 
+
                                  <div class="form-group">
                                     <label class="control-label has-error hide" for="first-scholar-amount">
                                        Please enter a positive number
                                     </label>
-                                    <input type="text" class="form-control" id="first-scholar-amount"           
+                                    <input type="text" class="form-control" id="first-scholar-amount"
                                        placeholder="First amount">
                                  </div>
 
@@ -256,7 +256,7 @@
                                     <label class="control-label has-error hide" for="second-scholar-amount">
                                        Please enter a positive number
                                     </label>
-                                    <input type="text" class="form-control" id="second-scholar-amount" 
+                                    <input type="text" class="form-control" id="second-scholar-amount"
                                              placeholder="Second amount">
                                  </div>
 
@@ -266,7 +266,7 @@
                      </div>
                   </div>
                </div>
-               
+
             </div>
 
             <div class="submit-section">
@@ -289,11 +289,11 @@
             </div>
 
             <!-- Begin Student Overview -->
-            <div id="student-overview" class="student-overview-container"> 
+            <div id="student-overview" class="student-overview-container">
 
                <div class="student-overview-title">
                   <div class="student-overview-scholarship">
-                     Scholarship Amount: 
+                     Scholarship Amount:
                   </div>
                   <div class="student-overview-personal">
                      <h2 class="student-overview-name"></h2>
@@ -309,7 +309,7 @@
                <div class="student-overview-bio">
                   <p> </p>
                </div>
-            </div> 
+            </div>
             <!-- End of Student Overview -->
 
             <div id="no-student" class="hide">There is no student stored with that information.</div>
@@ -328,22 +328,22 @@
 
       </div>
 
-   
-      <script type="text/javascript" src="/bower_components/jquery/dist/jquery.js"></script>
+
+      <script type="text/javascript" src="./bower_components/jquery/dist/jquery.js"></script>
       <script type="text/javascript" src="https://www.google.com/jsapi"></script>
       <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/select2/4.0.1/js/select2.min.js"></script>
 
-      <script type="text/javascript" src="/node_modules/bootstrap-sass/assets/javascripts/bootstrap-sprockets.js"></script>
-      <script type="text/javascript" src="/node_modules/bootstrap-sass/assets/javascripts/bootstrap.js"></script>
+      <script type="text/javascript" src="./node_modules/bootstrap-sass/assets/javascripts/bootstrap-sprockets.js"></script>
+      <script type="text/javascript" src="./node_modules/bootstrap-sass/assets/javascripts/bootstrap.js"></script>
 
 
-      <script type="text/javascript" src="scripts/jspdf.debug.js"></script>
-      <script type="text/javascript" src="scripts/from_html.js"></script>
-      <script type="text/javascript" src="scripts/addhtml.js"></script>
-      <script type="text/javascript" src="scripts/png_support.js"></script>
-      <script type="text/javascript" src="scripts/split_text_to_size.js"></script>
-      <script type="text/javascript" src="scripts/standard_fonts_metrics.js"></script>
-      <script type="text/javascript" src="scripts/main.js"></script>
+      <script type="text/javascript" src="./scripts/jspdf.debug.js"></script>
+      <script type="text/javascript" src="./scripts/from_html.js"></script>
+      <script type="text/javascript" src="./scripts/addhtml.js"></script>
+      <script type="text/javascript" src="./scripts/png_support.js"></script>
+      <script type="text/javascript" src="./scripts/split_text_to_size.js"></script>
+      <script type="text/javascript" src="./scripts/standard_fonts_metrics.js"></script>
+      <script type="text/javascript" src="./scripts/main.js"></script>
 
    </body>
 </html>
